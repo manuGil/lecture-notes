@@ -153,18 +153,8 @@ Complete sentence: 'This will..' **message**
 > Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes an snapshot of the changes and writes them to the repo's history.
 
 
-### f. Check Status Again & Check the Log
 
-```shell
-$ git status
-$ git log 
-```
-
-> Explanation of output: unique id, and list of commit messages.
-
-> Explanation content of directory and where changes are stored
-
-## 4. MAKE OTHER CHANGES (new)
+## 4. MAKING OTHER CHANGES (new)
 
 > We know that a good coding practice is using comments to discribe our code. Let's add some helpful comments to our script, e.g., author, python version and  short description of what the script does.
 
@@ -211,13 +201,6 @@ Finally,
 git commit -m "add author and description"
 ```
 
-### c. Checking the Log
-```shell
-$ git log
-```
-
-> Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
-
 ## 6. GIT & DIRECTORIES (new)
 
 ### a. Create a Directory 'treatments'
@@ -259,7 +242,19 @@ $ git commit -m "add some treatments for patients"
 
 ## 6. EXPLORING THE HISTORY
 
-### a. HEAD 
+### a. Checking the Log
+```shell
+$ git log
+$ git log --oneline
+```
+> Explanation of output: unique id, and list of commit messages.
+
+> Explanation content of directory and where changes are stored.
+
+> Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
+
+
+### b. HEAD 
 > In this part is more important to put attention than follow along. Put attention, follow along only if you won't loose the focus.
 
 > The **HEAD** refers to the current active branch in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch called by default *master*. In our case HEAD points to the most recent commmit in the master branch.
