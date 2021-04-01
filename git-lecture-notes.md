@@ -1,10 +1,10 @@
 # LECTURE NOTES: Version Control with Git
 
-This lecture notes are relevant for the session on **09-April-2021**, and focuses on a beginner-level. These notes assume the using the [Git terminal for Windows](https://gitforwindows.org/).
+These lecture notes are relevant for the session on **09-April-2021**, and focuses on a beginner-level. These notes assume the using the [Git terminal for Windows](https://gitforwindows.org/).
 
 * [Software carpentry learning material](http://swcarpentry.github.io/git-novice/)
 
-To set up command history on two terminal do the following:
+To set up command history on two terminals do the following:
 
 1. On main terminal:
 ```shell
@@ -15,10 +15,10 @@ $ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 $ tail -f ~/.bash_history
 ```
 
-> Version control systems start with a base version of a document, and then record changes you make each step of the way.
+> Version control systems start with a base version of a document and then record changes you make each step of the way.
 
 ## 1.  SETTING UP GIT (Lecture begins)
-> Sometimes the shortcut on the Windows menu for Git Bash,  won't work. In suh a case: go to the installation folder (usually C:/Git) and double-click on ``git-bash.exe``
+> Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually C:/Git) and double-click on "git-bash.exe "
 
 > **Key points:**
 Use `git config` with the `--global` option to configure a user name, email address, etc.
@@ -27,7 +27,7 @@ Use `git config` with the `--global` option to configure a user name, email addr
 
 `git <verb> [options]`
 
-### a. Setting up username and email
+### a. Setting up a username and email
 
 ```shell
 $ git config --global user.name "github-username"
@@ -64,11 +64,11 @@ $ git config -help
 ## 2. CREATING A REPOSITORY 
 
 > **Key Points:** 
-`git init` initializes a repository.
+`git init` initialises a repository.
 Git stores all of its repository data in a hidden `.git` directory.
 
 > **Use case:**
-Two researchers/progammers developing code to analyse the inflamation data used in the Python session.
+Two researchers/programmers are developing code to analyse the inflammation data used in the Python session.
 
 
 ### a. Make a Directory on the Desktop
@@ -89,7 +89,7 @@ $ ls -a
 $ git status
 ```
 
-> Explanation:  initializing (creating .git files) for every folder inside a repo is redundant and a bad practice.
+> Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
 
 
 ## 3. START TRACKING CHANGES (new)
@@ -114,11 +114,11 @@ $ git status
 
     print(count, 'lines in standard input')
     ```
-* check if file is in repo
+* check if the file is in the repo
     ```shell
     $ ls
     ```
-### b. test the Script
+### b. test the script
 
 ```shell
 $ echo "this is a line" | python count-lines.py 
@@ -134,8 +134,8 @@ $ git status
 $ git add count-lines.py
 ```
 
-> Ignore the warning about replacing LF by CRLF. |
-**warning: LF will be replaced by CRLF in count-lines.py.
+> Ignore the warning about replacing LF with CRLF. |
+**Warning: LF will be replaced by CRLF in count-lines.py.
 The file will have its original line endings in your working directory |**
 
 ### e. Commit Changes 
@@ -145,18 +145,18 @@ Creates a snapshot of changes in the repo's history.
 git commit -m "create  script count-lines.py"
 ```
 
-> `git commit -a` or ``--all`` stage all changes and write them to history.
+> `git commit -a' or "--all "stage all changes and write them to history.
 
-> Good commit messages: short (< 50 charaters).
+> Good commit messages: short (< 50 characters).
 Complete sentence: 'This will..' **message**
 
-> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes an snapshot of the changes and writes them to the repo's history.
+> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes a snapshot of the changes and writes them to the repo's history.
 
 
 
 ## 4. MAKING OTHER CHANGES (new)
 
-> We know that a good coding practice is using comments to discribe our code. Let's add some helpful comments to our script, e.g., author, python version and  short description of what the script does.
+> We know that a good coding practice is using comments to describe our code. Let's add some helpful comments to our script, e.g., author, python version and a short description of what the script does.
 
 * Add the following to the top of the script
 
@@ -166,8 +166,7 @@ Complete sentence: 'This will..' **message**
     description: prints the number of lines from standard input
     """
     ```
-
-* checkk status
+* check status
     ```shell
     $ git status
     ```
@@ -179,7 +178,7 @@ Complete sentence: 'This will..' **message**
 $ git diff 
 ```
 
-> Shows the difference between current state and most recently saved version (last commit)
+> Shows the difference between the current state and the most recently saved version (last commit)
 
 ### c. Add and Commit
 ```shell
@@ -189,21 +188,21 @@ git add count-lines.py
 ### d. Diff vs Diff --staged
 
 ```shell
-$ git diff [do not show difference with staged change]
-$ git diff --staged [shows diffrence with staged change]
+$ git diff [do not show the difference with staged change]
+$ git diff --staged [shows the difference with staged change]
 ```
 
-> `git diff`: shows diffeence betwen no-stagedchanges and last commit. `git diff --staged`: shows difference between staged-changes and last commit.
+> `git diff`: shows the difference between no-staged changes and last commit. `git diff --staged`: shows the difference between staged-changes and previous commit.
 
 Finally,
 
 ```shell
-git commit -m "add author and description"
+git commit -m "add author and description".
 ```
 
 ## 6. GIT & DIRECTORIES (new)
 
-### a. Create a Directory 'treatments'
+### a. Create a Directory 'treatments'.
 > Ask students to create a new directory, try to stage it, and check the status. 
 
 **Solutions:**
@@ -212,7 +211,7 @@ git commit -m "add author and description"
 $ mkdir treatments
 ```
 
-* check status and add directory. No changes are added
+* check the status and add the directory. No changes are added
 
     ```shell
     $ git status
@@ -227,7 +226,7 @@ $ mkdir treatments
 $ touch treatments/aspirin.txt treatments/advil.txt
 ```
 
-### c. Stage All Files in directory
+### c. Stage All Files in Directory
 
 ```shell
 $ git add treatments/
@@ -240,6 +239,44 @@ $ git status
 $ git commit -m "add some treatments for patients"
 ```
 
+## 8. IGNORING THINGS (new)
+
+### a. Say you have files you don't want to tack with git
+
+> We'll use create some fictitious data files for now.
+
+```shell
+$ mkdir data
+$ touch data/a.dat data/b.dat big-data.zip
+```
+
+> **Important:** git is not good for tracking large dataset, especially binary files
+
+### b. Create .gitignore File
+> At the root of the repo, create a `.gitignore` file, and list all files and directories you don't want to tack.
+
+```shell
+$ nano .gitignore
+```
+Type:
+
+```
+big-data.zip
+data/
+```
+
+### c. Check what's Being Ignored
+```shell
+$ git status --ignored
+```
+
+-------
+
+**FRIST BREAK**
+
+-------
+
+
 ## 6. EXPLORING THE HISTORY
 
 ### a. Checking the Log
@@ -247,20 +284,18 @@ $ git commit -m "add some treatments for patients"
 $ git log
 $ git log --oneline
 ```
-> Explanation of output: unique id, and list of commit messages.
+> Explanation of output: unique ID and list of commit messages.
 
-> Explanation content of directory and where changes are stored.
+> Explanation content of Directory and where changes are stored.
 
 > Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
 
-
 ### b. HEAD 
-> In this part is more important to put attention than follow along. Put attention, follow along only if you won't loose the focus.
+> In the following parts (b-e) is more critical to **put attention** than to follow along. Put attention, follow along only if you won't lose focus.
 
-> The **HEAD** refers to the current active branch in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch called by default *master*. In our case HEAD points to the most recent commmit in the master branch.
-We can refere to the most recent commit using HEAD as identifier.
+> The **HEAD** refers to the current active branch in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch called by default *master*. In our case HEAD points to the most recent commit in the master branch. We can refer to the most recent commit using HEAD as an identifier.
 
-### a. Let's change the author's name in our count-lines.py
+### c. Let's change the author's name in our count-lines.py
 
 ```shell
 $ nano count-lines.py
@@ -268,7 +303,8 @@ $ nano count-lines.py
 ```python
 # author: John J. Doe
 ```
-### b. Check difference compared to HEAD
+
+### d. Check difference compared to HEAD
 ```shell
 $ git diff HEAD treatments/aspin.txt 
 ```
@@ -278,9 +314,9 @@ $ git diff HEAD treatments/aspin.txt
 $ git diff HEAD~1 count-lines.py 
 $ git diff HEAD~3 count-lines.py
 ```
-> `HEAD~1` compares the last commit. `HEAD~3`compares to 3 commits ago.If NO CHANGES were made betwee commits, the most recent change will keep displaying.
+> `HEAD~1` compares the last commit. `HEAD~3'compares to 3 commits ago. If NO CHANGES were made between commits, the most recent change would keep displaying.
 
-### d. Compared using the commit IDs
+### e. Compared using the commit IDs
 > "You will have to reference the SHA explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
 
 Usage:
@@ -298,41 +334,38 @@ $ git diff commit-id HEAD count-lines.py
 ## 7. REVERTING CHANGES (new)
 > **Follow along**
 
-> BEFORE THAT: if you haven't change the author name in count-lines.py. Do that using `nano`
+> BEFORE THAT: if you haven't change the author name in count-lines.py. Do that using `nano`, do not commit.
 
 ```shell
 $ nano count-lines.py
 ```
 
-### a. Restore the last change. Use `chekckout`
+### a. Revert to older versions using an identifier. 
+>  One way to rever changes is using the commit ID. Restore the latest version. Use `chekckout`
 
 ```shell
-$ git chekckout HEAD count-lines.py
+$ git log --oneline [copy ID of HEAD]
+```
 
+```shell
+$ git chekckout <id--commit> count-lines.py [will revert]
 $ cat count-lines.py
 ```
 
-### b. Revert to older versions using  an identifier. 
-
-```shell
-$ git log --oneline
-git chekckout id--commit <file-name>
-```
-
-### c. Restore version to when we added arutho and description
-> **Aditional example. Used only if there's enough time**
+### b. Restore version to when we added author and description
+> **Aditional example. Used if on schedule**
 
 ```shell
 $ git chekckout f9d7e9c count-lines.py  
 ```
 
-> **Changes go to staging area, they are not commited.** Howeve, we alway can go back to any version we have commited. To go back to the newest version. Check out to HEAD.
+> **Changes go to the staging area; they are not committed.** However, we always can go back to any version we have committed. To go back to the newest version, check out to HEAD.
 
-* chect out to HEAD
+* check out to HEAD
 
     ```shell
     $ git chekckout HEAD count-lines.py 
-    $ cat count-lines.py [notice the file is back to the newest version are back]
+    $ cat count-lines.py [notice the file is back to the newest committed version are back]
     ```
 
 * Commit the newest version
@@ -341,64 +374,30 @@ $ git chekckout f9d7e9c count-lines.py
     $ git add count-lines.py 
     $ git commit -m "update author's name"
     ```
-## 8. IGNORING THINGS (new)
 
-### a. Say you have files you don't want to tack with git
 
-> We'll use create some fictious data files for now.
-
-```shell
-$ mkdir data
-$ touch data/a.dat data/b.dat big-data.zip
-```
-
-> **Important:** git is not good for tracking large dataset, specially binary files
-
-### b. Create .gitignore File
-> At the root of the repo create a `.gitignore` fiel, and list all files and directories you don't want to tack.
-
-```shell
-$ nano .gitignore
-```
-Type:
-
-```
-big-data.zip
-data/
-```
-
-### c. Check what's being Ignored
-```shell
-$ git status --ignored
-```
--------
-
-**FRIST BREAK**
-
--------
-
-## EXERCISE (current)- 20 mins
+## EXERCISE 15 mins
 
 ### a. Explain exercise in plenary
 
-Repo manipulation - (start from scratch, add files, update, recover old version - uses all what was previously shown)
+Repo manipulation - (start from scratch, add files, update, recover old version - uses all that was previously shown)
 
-### b. Helper and students go to Breakout session
+### b. Helper and students go to a Breakout session
 
 **Exercise description:** https://drive.google.com/drive/folders/1m26mHK05mSBopNrK03gg0ajho7IcReP8 
 
 
 ## 9. REMOTES IN GITHUB
 
-> Students use their github account to create an empty repository, and they follow instructions to push their local copy to the remote.
+> Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
-### a. Create github Repo 
-> Go to github and create an empty and public repository called 'patients-analysis'.
+### a. Create GitHub Repo 
+> Go to Github and create an empty and public repository called 'patients-analysis'.
 
-Description: analysis of treatments for inflamation
+Repo description: *analysis of treatments for inflammation*
 
 ### b. Add Remote to Local Repo
-> At your local repository (on the terminal), add a the remote repo and push the content.
+> At your local repository (on the terminal), add the remote repo and push the content.
 
 * connect to remote
     ```shell
@@ -411,33 +410,33 @@ Description: analysis of treatments for inflamation
     $ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
     $ git push -u origin main 
     ```
-> **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it when it needs your username and password. In Windows, a small window migth pop up and you will need to enter your password twice (once in the terminal and once in the pop-up window. For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
+> **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it when it needs your username and password. In Windows, a small window might pop up, and you will need to enter your password twice (once in the terminal and once in the pop-up window. For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
 
 ### c. Check the repo has been completed successfully
 * Go back to your repo page and refresh the browser.
 
-* To pull chages from the remote:
+* To pull changes from the remote:
     ```shell
     $ git pull origin main
     ``` 
+
 ----
 **SECOND BREAK**
 
 -------
 
-
 ## 10. COLLABORATING (new)
 
 ### a. Clone workshop-check-in repo
-> Move to the Desktop and clone the workshop-check-in repo. Share link to repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
+> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
 
 ```shell
 $ cd ~/Desktop
 $ git clone https://github.com/manuGil/workshop-check-in.git
 ```
-### b. Create a check in file
+### b. Create a check-in file
 
-> Make a copy of `check-in/template.md` in the same directory using your first name. Mind the file extension ".md"
+> Make a copy of `check-in/template.md` in the same Directory using your first name. Mind the file extension ".md"
 
 ```shell
 $ cd workshop-check-in
@@ -445,7 +444,7 @@ $ cp check-in/template.md check-in/<your-name>.md
 ```
 
 ### c. Edit your check-in file 
-> Edit `<your-name.md>` change the content. There a some hints there
+> Edit `<your-name.md>` change the content. You'll see some hints
 
 ```shell
 $ nano check-in/<your-name>.md
@@ -457,7 +456,7 @@ A basic collaborative workflow using git is:
 
 * "update your local repo with git `pull origin main`,"
 * "make your changes and stage them with `git add`,"
-* "commit your changes with `git commit -m`, and"
+* "commit your changes with `git commit -m', and"
 * "upload the changes to GitHub with `git push origin main`"
 
 **Example:**
@@ -465,47 +464,22 @@ A basic collaborative workflow using git is:
 ```shell
 $ git pull origin main
 $ git add 
-$ git commit -m "add chekc in"
+$ git commit -m "add check-in"
 $ git push origin main
 ```
 
 ## 11. CONFLICTS (Demo)
 
-> Explantion of when a conflict can happen. Demo using the `count-lines.py`. A helper and the instructor will create a conflic and present a solution.
+> Explanation of when a conflict can happen. Demo using the `count-lines.py`. A helper and the instructor will create a conflict and present a solution.
 ### a. Create conflict
 
-* [Helper]: pulls instructor repo, edits `count-lines.py` and adds his/her name a an Author. Add, commit and push changes to remote.
-* [Instructor]: edits local `count-lines.py`, and adds a creation date on the comment section, Add, commit and try to push.
+* [Helper]: pulls instructor repo, edits `count-lines.py` and adds his/her name as an Author. Add, commit and push changes to remote.
+* [Instructor]: edits local `count-lines.py`, and adds a creation date on the comment section. Add, commit and try to push.
 
 
 ### b. Solve conflict 
-* [Instructor]: explains the why the conflict occured and how to solve it, by deciding what changes to keep.
+* [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep.
 
 ## 14. Q&A
 
 > Participants ask questions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
