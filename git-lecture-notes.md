@@ -50,7 +50,9 @@ $ git config --global user.email "github-email@mail.com"
 $ git config --list
 ```
 
-### d. How to Get Help with the Commands
+### d. How to Get Help with the Commands 
+> Optional: only if on schedule
+
 ```shell
 $ git config -h 
 ```
@@ -59,7 +61,7 @@ Or (this will open HTML manual)
 $ git config -help
 ```
 
-## 2. CREATING A REPOSITORY
+## 2. CREATING A REPOSITORY 
 
 > **Key Points:** 
 `git init` initializes a repository.
@@ -87,10 +89,10 @@ $ ls -a
 $ git status
 ```
 
-### d. Bad practice
-> Initializing (creating .git files) for every folder inside a directory.
+> Explanation:  initializing (creating .git files) for every folder inside a repo is redundant and a bad practice.
 
-## 3. START TRACKING CHANGES 
+
+## 3. START TRACKING CHANGES (new)
 > **Key Points:** the modify-add-commit cycle.
 
 ### a. Create a Python Script to Count Lines 
@@ -143,8 +145,12 @@ Creates a snapshot of changes in the repo's history.
 git commit -m "create  script count-lines.py"
 ```
 
+> `git commit -a` or ``--all`` stage all changes and write them to history.
+
 > Good commit messages: short (< 50 charaters).
 Complete sentence: 'This will..' **message**
+
+> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes an snapshot of the changes and writes them to the repo's history.
 
 
 ### f. Check Status Again & Check the Log
@@ -156,9 +162,9 @@ $ git log
 
 > Explanation of output: unique id, and list of commit messages.
 
-> Explanation o content of directory and where changes are stored
+> Explanation content of directory and where changes are stored
 
-## 4. MAKE OTHER CHANGES
+## 4. MAKE OTHER CHANGES (new)
 
 > We know that a good coding practice is using comments to discribe our code. Let's add some helpful comments to our script, e.g., author, python version and  short description of what the script does.
 
@@ -188,43 +194,21 @@ $ git diff
 ### c. Add and Commit
 ```shell
 git add count-lines.py
-git commit -m "add author and description"
 ```
 
-## 5. STAGING
-
-### a. What is Staging
-
-> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes an snapshot of the changes and writes them to the repo's history.
+### d. Diff vs Diff --staged
 
 ```shell
-$ git add 
-$ git commit
+$ git diff [do not show difference with staged change]
+$ git diff --staged [shows diffrence with staged change]
 ```
-
-> `git commit -a` or ``--all`` stage all changes and write them to history.
-
-### b. Difference Between git diff and git diff --staged
-
-* Do some more changes to `count-lines.py`. E.g, add python version to script:  *python version: 3.9*
-
-    ```shell
-	$ nano count-lines.py
-	$ git diff
-	```
-
-*  Stage changes and check with `diff`
-    ```shell
-	$ git add count-lines.py
-	$ git diff 
-	$ git diff --staged 
-    ```
 
 > `git diff`: shows diffeence betwen no-stagedchanges and last commit. `git diff --staged`: shows difference between staged-changes and last commit.
 
-* commit changes
+Finally,
+
 ```shell
-$ git commit -m "add python version to script"
+git commit -m "add author and description"
 ```
 
 ### c. Checking the Log
@@ -234,9 +218,13 @@ $ git log
 
 > Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
 
-## 6. GIT & DIRECTORIES (exercise?)
+## 6. GIT & DIRECTORIES (new)
 
 ### a. Create a Directory 'treatments'
+> Ask students to create a new directory, try to stage it, and check the status. 
+
+**Solutions:**
+
 ```shell
 $ mkdir treatments
 ```
@@ -245,10 +233,10 @@ $ mkdir treatments
 
     ```shell
     $ git status
-    $ git add spaceships
+    $ git add treatments
     $ git status
     ```
-> git doesn't track directories
+> Explanation: git doesn't track directories
 
 ### b. Create Files on the Directory and add Changes
 
@@ -262,18 +250,12 @@ $ touch treatments/aspirin.txt treatments/advil.txt
 $ git add treatments/
 $ git status
 ```
+
 ### d. Commit
 
 ```shell
 $ git commit -m "add some treatments for patients"
 ```
-
-## 7. FIRST EXERCISE (20 mintues)
-Groups in break-out room.
-Description:  https://docs.google.com/presentation/d/1f-bhaY0HnhymkXaYdSPVXFXNl_ZIgsfq/edit#slide=id.p2
-
-
-
 
 ## 6. EXPLORING THE HISTORY
 
@@ -318,7 +300,7 @@ $ git diff commit-id count-lines.py
 $ git diff commit-id HEAD count-lines.py
 ```
 
-## 7. REVERTING CHANGES 
+## 7. REVERTING CHANGES (new)
 > **Follow along**
 
 > BEFORE THAT: if you haven't change the author name in count-lines.py. Do that using `nano`
@@ -364,7 +346,7 @@ $ git chekckout f9d7e9c count-lines.py
     $ git add count-lines.py 
     $ git commit -m "update author's name"
     ```
-## 8. Ignoring Things [move ahead]
+## 8. IGNORING THINGS (new)
 
 ### a. Say you have files you don't want to tack with git
 
@@ -400,7 +382,7 @@ $ git status --ignored
 
 -------
 
-## 10. EXERCISE (current)- 20 mins
+## EXERCISE (current)- 20 mins
 
 ### a. Explain exercise in plenary
 
@@ -411,7 +393,7 @@ Repo manipulation - (start from scratch, add files, update, recover old version 
 **Exercise description:** https://drive.google.com/drive/folders/1m26mHK05mSBopNrK03gg0ajho7IcReP8 
 
 
-## 11. REMOTES IN GITHUB
+## 9. REMOTES IN GITHUB
 
 > Students use their github account to create an empty repository, and they follow instructions to push their local copy to the remote.
 
@@ -424,16 +406,16 @@ Description: analysis of treatments for inflamation
 > At your local repository (on the terminal), add a the remote repo and push the content.
 
 * connect to remote
-```shell
-$ git remote add origin <https://url/to/your-remote-repo>
-```
+    ```shell
+    $ git remote add origin <https://url/to/your-remote-repo>
+    ```
 
 * check that remove was added
-```shell
-$ git remote -v
-$ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
-$ git push -u origin main 
-```
+    ```shell
+    $ git remote -v
+    $ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
+    $ git push -u origin main 
+    ```
 > **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it when it needs your username and password. In Windows, a small window migth pop up and you will need to enter your password twice (once in the terminal and once in the pop-up window. For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
 
 ### c. Check the repo has been completed successfully
@@ -443,46 +425,70 @@ $ git push -u origin main
     ```shell
     $ git pull origin main
     ``` 
+----
+**SECOND BREAK**
 
-12. Collaborating
+-------
 
-a. Move to the Desktop and clone the workshop-check-in repo
 
+## 10. COLLABORATING (new)
+
+### a. Clone workshop-check-in repo
+> Move to the Desktop and clone the workshop-check-in repo. Share link to repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
+
+```shell
 $ cd ~/Desktop
 $ git clone https://github.com/manuGil/workshop-check-in.git
+```
+### b. Create a check in file
 
-b. Make a copy of `check-in/template.md` in the same directory using your first name. Mind the file extension `.md`
+> Make a copy of `check-in/template.md` in the same directory using your first name. Mind the file extension ".md"
 
+```shell
 $ cd workshop-check-in
 $ cp check-in/template.md check-in/<your-name>.md
+```
 
-c. Edit <your-name.md> with you personal data
+### c. Edit your check-in file 
+> Edit `<your-name.md>` change the content. There a some hints there
 
+```shell
 $ nano check-in/<your-name>.md
+```
 
-d. pull, add, commit, and push to the remote
+### d. pull, add, commit, and push to the remote
 
-[A basic collaborative workflow would be:
+A basic collaborative workflow using git is:
 
-update your local repo with git pull origin master,
-make your changes and stage them with git add,
-commit your changes with git commit -m, and
-upload the changes to GitHub with git push origin master
-]
+* "update your local repo with git `pull origin main`,"
+* "make your changes and stage them with `git add`,"
+* "commit your changes with `git commit -m`, and"
+* "upload the changes to GitHub with `git push origin main`"
 
+**Example:**
+
+```shell
 $ git pull origin main
 $ git add 
 $ git commit -m "add chekc in"
 $ git push origin main
+```
 
-13. CONFLICTS
+## 11. CONFLICTS (Demo)
 
-a. Demo using the count-lines.py
+> Explantion of when a conflict can happen. Demo using the `count-lines.py`. A helper and the instructor will create a conflic and present a solution.
+### a. Create conflict
 
-b. Solve conflict by deciding what changes to keep.
+* [Helper]: pulls instructor repo, edits `count-lines.py` and adds his/her name a an Author. Add, commit and push changes to remote.
+* [Instructor]: edits local `count-lines.py`, and adds a creation date on the comment section, Add, commit and try to push.
 
-14. QUESTIONS
 
+### b. Solve conflict 
+* [Instructor]: explains the why the conflict occured and how to solve it, by deciding what changes to keep.
+
+## 14. Q&A
+
+> Participants ask questions.
 
 
 
