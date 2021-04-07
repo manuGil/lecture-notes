@@ -42,7 +42,7 @@ $ git config --global user.email "github-email@mail.com"
     ```
 * For MacOS and Linux
     ```shell
-    $ git config --gobal core.autocrlf input
+    $ git config --global core.autocrlf input
     ```
 
 ### c. Check Global Settings
