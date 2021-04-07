@@ -306,7 +306,7 @@ $ nano count-lines.py
 
 ### d. Check difference compared to HEAD
 ```shell
-$ git diff HEAD treatments/aspin.txt 
+$ git diff HEAD treatments/aspirin.txt 
 ```
 > This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use **HEAD** to check the difference between the current state of `count-lines.py` and previous commits.
 
