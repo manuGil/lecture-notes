@@ -30,7 +30,7 @@ $ tail -f ~/.bash_history
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
-## 1.  SETTING UP GIT (Lecture begins) [10 min]
+## 1.  SETTING UP GIT (Lecture begins) [15 min]
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
@@ -74,7 +74,7 @@ $ git config --global --list
 ```
 
 
-## 2. CREATING A REPOSITORY 
+## 2. CREATING A REPOSITORY [4 min]
 
 > **Key Points:** 
 `git init` initialises a repository.
@@ -105,13 +105,13 @@ $ git status
 > Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
 
 
-## 3. START TRACKING CHANGES (new)
+## 3. START TRACKING CHANGES (new) [10 min]
 > **Key Points:** the modify-add-commit cycle.
 
 ### a. Create a Python Script to Count Lines 
 > The script will count lines from the standard input
 
-* Create file
+* Create and modify file
 
     ```shell
     $ nano count-lines.py
@@ -161,13 +161,13 @@ git commit -m "create  script count-lines.py"
 > `git commit -a' or "--all "stage all changes and write them to history.
 
 > Good commit messages: short (< 50 characters).
-Complete sentence: 'This will..' **message**
+Complete sentence: 'This will..' **message** [use slide] 
 
-> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes a snapshot of the changes and writes them to the repo's history.
+> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes a snapshot of the changes and writes them to the repo's history. Use illustration.
 
+> **Questions?**
 
-
-## 4. MAKING OTHER CHANGES (new)
+## 4. MAKING OTHER CHANGES (new) [5 min]
 
 > We know that a good coding practice is using comments to describe our code. Let's add some helpful comments to our script, e.g., author, python version and a short description of what the script does.
 
@@ -183,7 +183,7 @@ Complete sentence: 'This will..' **message**
     ```shell
     $ git status
     ```
-    > Explanation of modified files and  commits]
+    > Explanation of modified files and  commits
 
 ### b. Check Differences (review changes)
 
@@ -213,7 +213,7 @@ Finally,
 git commit -m "add author and description".
 ```
 
-## 6. GIT & DIRECTORIES (new)
+## 6. GIT & DIRECTORIES (new) [4 mins]
 
 ### a. Create a Directory 'treatments'.
 > Ask students to create a new directory, try to stage it, and check the status. 
@@ -252,7 +252,7 @@ $ git status
 $ git commit -m "add some treatments for patients"
 ```
 
-## 8. IGNORING THINGS (new)
+## 8. IGNORING THINGS (new) [6 mins]
 
 ### a. Say you have files you don't want to tack with git
 
@@ -278,6 +278,9 @@ big-data.zip
 data/
 ```
 
+* Add and commit .gitignore*
+
+
 ### c. Check what's Being Ignored
 ```shell
 $ git status --ignored
@@ -288,7 +291,6 @@ $ git status --ignored
 **FRIST BREAK**
 
 -------
-
 
 ## 6. EXPLORING THE HISTORY
 
