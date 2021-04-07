@@ -15,17 +15,38 @@ $ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 $ tail -f ~/.bash_history
 ```
 
+### Windows Terminal (Preview) [Keboard shortcuts]
+
+| Action             | Shortcut                |
+|--------------------|-------------------------|
+|Split pane horizontally | Alt + Shift + `-`   | 
+|Split pane vertically   | Alt + Shift + `+`   |
+|Close a pane            | Ctrl+Shift + `w`     |
+|Move pane focus         | Alt + `Arrow keys`   |
+|Resize the focused pane | Alt+Shift + `Arrow keys` |
+
+
+## 0. INTRO
+
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
-## 1.  SETTING UP GIT (Lecture begins)
-> Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually C:/Git) and double-click on "git-bash.exe "
+## 1.  SETTING UP GIT (Lecture begins) [10 min]
+> Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
 Use `git config` with the `--global` option to configure a user name, email address, etc.
 
 ### Git Command Syntax
 
-`git <verb> [options]`
+`git <command> [options]`
+
+
+> explian syntax using "how to get help" as example.
+
+* How to Get Help with the Commands 
+
+    * show help for all commands: `git --help`
+    * show help for specific command: e.g., `git init -h`
 
 ### a. Setting up a username and email
 
@@ -35,6 +56,8 @@ $ git config --global user.email "github-email@mail.com"
 ```
 
 ### b. Configure Line Break 
+
+> Use Notepad++ to demo the line breaks
 
 * For Windows
     ```shell
@@ -50,16 +73,6 @@ $ git config --global user.email "github-email@mail.com"
 $ git config --global --list
 ```
 
-### d. How to Get Help with the Commands 
-> Optional: only if on schedule
-
-```shell
-$ git config -h 
-```
-Or (this will open HTML manual)
-```shell
-$ git config -help
-```
 
 ## 2. CREATING A REPOSITORY 
 
