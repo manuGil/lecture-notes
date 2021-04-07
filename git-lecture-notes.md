@@ -404,7 +404,7 @@ Repo description: *analysis of treatments for inflammation*
     $ git remote add origin <https://url/to/your-remote-repo>
     ```
 
-* check that remove was added
+* check that remote was added
     ```shell
     $ git remote -v
     $ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
