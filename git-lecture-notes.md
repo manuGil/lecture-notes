@@ -293,7 +293,7 @@ $ git log --oneline
 ### b. HEAD 
 > In the following parts (b-e) is more critical to **put attention** than to follow along. Put attention, follow along only if you won't lose focus.
 
-> The **HEAD** refers to the current active branch in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch called by default *master*. In our case HEAD points to the most recent commit in the master branch. We can refer to the most recent commit using HEAD as an identifier.
+> The **HEAD** refers to the current active branch in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
 
 ### c. Let's change the author's name in our count-lines.py
 
