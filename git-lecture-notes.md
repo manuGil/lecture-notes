@@ -47,7 +47,7 @@ $ git config --global user.email "github-email@mail.com"
 
 ### c. Check Global Settings
 ```shell
-$ git config --list
+$ git config --global --list
 ```
 
 ### d. How to Get Help with the Commands 
