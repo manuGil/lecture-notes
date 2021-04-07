@@ -341,14 +341,14 @@ $ nano count-lines.py
 ```
 
 ### a. Revert to older versions using an identifier. 
->  One way to rever changes is using the commit ID. Restore the latest version. Use `chekckout`
+>  One way to rever changes is using the commit ID. Restore the latest version. Use `checkout`
 
 ```shell
 $ git log --oneline [copy ID of HEAD]
 ```
 
 ```shell
-$ git chekckout <id--commit> count-lines.py [will revert]
+$ git checkout <id--commit> count-lines.py [will revert]
 $ cat count-lines.py
 ```
 
@@ -356,7 +356,7 @@ $ cat count-lines.py
 > **Aditional example. Used if on schedule**
 
 ```shell
-$ git chekckout f9d7e9c count-lines.py  
+$ git checkout f9d7e9c count-lines.py  
 ```
 
 > **Changes go to the staging area; they are not committed.** However, we always can go back to any version we have committed. To go back to the newest version, check out to HEAD.
@@ -364,7 +364,7 @@ $ git chekckout f9d7e9c count-lines.py
 * check out to HEAD
 
     ```shell
-    $ git chekckout HEAD count-lines.py 
+    $ git checkout HEAD count-lines.py 
     $ cat count-lines.py [notice the file is back to the newest committed version are back]
     ```
 
