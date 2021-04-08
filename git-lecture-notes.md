@@ -213,7 +213,7 @@ Finally,
 git commit -m "add author and description".
 ```
 
-## 6. GIT & DIRECTORIES (new) [4 mins]
+## 5. GIT & DIRECTORIES (new) [4 mins]
 
 ### a. Create a Directory 'treatments'.
 > Ask students to create a new directory, try to stage it, and check the status. 
@@ -252,7 +252,7 @@ $ git status
 $ git commit -m "add some treatments for patients"
 ```
 
-## 8. IGNORING THINGS (new) [6 mins]
+## 6. IGNORING THINGS (new) [6 mins]
 
 ### a. Say you have files you don't want to tack with git
 
@@ -292,7 +292,7 @@ $ git status --ignored
 
 -------
 
-## 6. EXPLORING THE HISTORY
+## 7. EXPLORING THE HISTORY
 
 ### a. Checking the Log
 ```shell
@@ -402,7 +402,7 @@ Repo manipulation - (start from scratch, add files, update, recover old version 
 **Exercise description:** https://drive.google.com/drive/folders/1m26mHK05mSBopNrK03gg0ajho7IcReP8 
 
 
-## 9. REMOTES IN GITHUB
+## 8. REMOTES IN GITHUB
 
 > Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
@@ -440,7 +440,7 @@ Repo description: *analysis of treatments for inflammation*
 
 -------
 
-## 10. COLLABORATING (new)
+## 9. COLLABORATING (new)
 
 ### a. Clone workshop-check-in repo
 > Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
@@ -483,7 +483,7 @@ $ git commit -m "add check-in"
 $ git push origin main
 ```
 
-## 11. CONFLICTS (Demo)
+## 10. CONFLICTS (Demo)
 
 > Explanation of when a conflict can happen. Demo using the `count-lines.py`. A helper and the instructor will create a conflict and present a solution.
 ### a. Create conflict
