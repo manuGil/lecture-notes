@@ -402,7 +402,7 @@ $ git checkout f9d7e9c count-lines.py
     ```
 ------
 
-## EXERCISE 15 mins
+## EXERCISE [15 mins]
 
 ### a. Explain exercise in plenary
 
