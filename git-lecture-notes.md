@@ -7,11 +7,11 @@ These lecture notes are relevant for the session on **09-April-2021**, and focus
 To set up command history on two terminals do the following:
 
 1. On main terminal:
-```shell
+```bash
 $ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 ```
 2. On second (history) terminal:
-```shell
+```bash
 $ tail -f ~/.bash_history
 ```
 
@@ -50,7 +50,7 @@ Use `git config` with the `--global` option to configure a user name, email addr
 
 ### a. Setting up a username and email
 
-```shell
+```bash
 $ git config --global user.name "github-username"
 $ git config --global user.email "github-email@mail.com"
 ```
@@ -412,7 +412,7 @@ $ git checkout f9d7e9c count-lines.py
 
 > Suggestion: Share your screeen, and ask participats to try things firts by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
 
-#### Answers
+### c. Answers
 
 * **Create new repository, use the modify-add-commit cycle, and recover older versions.**
 
@@ -423,7 +423,6 @@ $ git checkout f9d7e9c count-lines.py
         $ cd my-repo/
         $ git init
         ```
-
     2. Create a files `research.txt` with the sentence: **Science is awesome**
 
         ```shell
@@ -457,7 +456,7 @@ $ git checkout f9d7e9c count-lines.py
         $ git log --oneline # find and copy ID of the firts commit
         $ git checkout <commit-ID> research.txt # revert changes 
         $ cat reseach.txt # check version has been recovered
-        $ git commit -m "recover awesome science" # commit very first version
+        $ git commit -m "recover awesome science" # commit recovered version
         ```
 
 * **Check your history log – you should have 3 commits**
@@ -473,8 +472,10 @@ $ git checkout f9d7e9c count-lines.py
 
 > Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
+> Explain what  GitHub is **[slides, 2 min]**
+
 ### a. Create GitHub Repo 
-> Go to Github and create an empty and public repository called 'patients-analysis'.
+> Go to Github and create an empty and public repository called `patients-analysis`.
 
 Repo description: *analysis of treatments for inflammation*
 
@@ -492,7 +493,7 @@ Repo description: *analysis of treatments for inflammation*
     $ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
     $ git push -u origin main 
     ```
-> **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it when it needs your username and password. In Windows, a small window might pop up, and you will need to enter your password twice (once in the terminal and once in the pop-up window. For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
+> **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it, when it needs your username and password. In **Windows**: a small window might pop up, and you will need to enter your password twice (once in the terminal and once in the pop-up window. For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
 
 ### c. Check the repo has been completed successfully
 * Go back to your repo page and refresh the browser.
