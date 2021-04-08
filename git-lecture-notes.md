@@ -174,9 +174,8 @@ Complete sentence: 'This will..' **message** [use slide]
 * Add the following to the top of the script
 
     ```python
-    """
-    author: Manuel G.
-    description: prints the number of lines from standard input
+    """ This module counts the number of lines in standard input
+    Input: any string from system standard input 
     """
     ```
 * check status
@@ -210,7 +209,7 @@ $ git diff --staged [shows the difference with staged change]
 Finally,
 
 ```shell
-git commit -m "add author and description".
+git commit -m "add description of expected input".
 ```
 
 ## 5. GIT & DIRECTORIES (new) [4 mins]
@@ -292,13 +291,16 @@ $ git status --ignored
 
 -------
 
-## 7. EXPLORING THE HISTORY
+## 7. EXPLORING THE HISTORY [16 min]
 
 ### a. Checking the Log
 ```shell
 $ git log
+$ git log --graph [optional]
 $ git log --oneline
 ```
+
+
 > Explanation of output: unique ID and list of commit messages.
 
 > Explanation content of Directory and where changes are stored.
@@ -308,20 +310,20 @@ $ git log --oneline
 ### b. HEAD 
 > In the following parts (b-e) is more critical to **put attention** than to follow along. Put attention, follow along only if you won't lose focus.
 
-> The **HEAD** refers to the current active branch in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
+> The **HEAD** refers to the *current active branch* in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
 
-### c. Let's change the author's name in our count-lines.py
+### c. Let's add some documentation about the ouput of count-lines.py
 
 ```shell
 $ nano count-lines.py
 ```
 ```python
-# author: John J. Doe
+# Output: a string with the total number of lines
 ```
 
 ### d. Check difference compared to HEAD
 ```shell
-$ git diff HEAD treatments/aspirin.txt 
+$ git diff HEAD count-lines.py
 ```
 > This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use **HEAD** to check the difference between the current state of `count-lines.py` and previous commits.
 
@@ -329,7 +331,7 @@ $ git diff HEAD treatments/aspirin.txt
 $ git diff HEAD~1 count-lines.py 
 $ git diff HEAD~3 count-lines.py
 ```
-> `HEAD~1` compares the last commit. `HEAD~3'compares to 3 commits ago. If NO CHANGES were made between commits, the most recent change would keep displaying.
+> `HEAD~1` compares the last commit. `HEAD~3'compares to 3 commits ago. 
 
 ### e. Compared using the commit IDs
 > "You will have to reference the SHA explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
@@ -339,36 +341,45 @@ Usage:
 **git diff** `<start-commit-SHA>` **HEAD** `<file>`
 
 ```shell
-$ git log --oneline [copy an id to compare]
+$ git log --oneline # [copy an ID to compare]
 ```
 ```shell
-$ git diff commit-id count-lines.py
-$ git diff commit-id HEAD count-lines.py
+$ git diff commit-id count-lines.py # [use ID for first commit]
+$ git diff commit-id HEAD count-lines.py # [use ID for first commit]
 ```
+> wrap up this section by an illustration of the git history tree
 
-## 7. REVERTING CHANGES (new)
+## 7. REVERTING CHANGES (new) [9 min]
 > **Follow along**
 
-> BEFORE THAT: if you haven't change the author name in count-lines.py. Do that using `nano`, do not commit.
+> BEFORE THAT: if you haven't add a descripton for `Output` to count-lines.py. Do that using `nano`, and commit!
 
 ```shell
 $ nano count-lines.py
+```
+```python
+# Output: a string with the total number of lines
+```
+
+```shell
+$ git add count-lines.py
+$ git commit -m "add description of output"
 ```
 
 ### a. Revert to older versions using an identifier. 
 >  One way to rever changes is using the commit ID. Restore the latest version. Use `checkout`
 
 ```shell
-$ git log --oneline [copy ID of HEAD]
+$ git log --oneline # [copy ID of "description input"]
 ```
 
 ```shell
-$ git checkout <id--commit> count-lines.py [will revert]
+$ git checkout <id--commit> count-lines.py # [will revert changes, use firts commit ID]
 $ cat count-lines.py
 ```
 
-### b. Restore version to when we added author and description
-> **Aditional example. Used if on schedule**
+### b. Restore version to without any docstring [Optional]
+> **Aditional example. Ask particpants to do it. Used if on schedule**
 
 ```shell
 $ git checkout f9d7e9c count-lines.py  
@@ -383,24 +394,80 @@ $ git checkout f9d7e9c count-lines.py
     $ cat count-lines.py [notice the file is back to the newest committed version are back]
     ```
 
-* Commit the newest version
+* Add and Commit the newest version
 
     ```shell
     $ git add count-lines.py 
     $ git commit -m "update author's name"
     ```
-
+------
 
 ## EXERCISE 15 mins
 
 ### a. Explain exercise in plenary
 
-Repo manipulation - (start from scratch, add files, update, recover old version - uses all that was previously shown)
+**Exercise description (slides):** https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing
 
-### b. Helper and students go to a Breakout session
+### b. Helpers and partcipants go to a Breakout session
 
-**Exercise description:** https://drive.google.com/drive/folders/1m26mHK05mSBopNrK03gg0ajho7IcReP8 
+> Suggestion: Share your screeen, and ask participats to try things firts by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
 
+#### Answers
+
+* **Create new repository, use the modify-add-commit cycle, and recover older versions.**
+
+    1. Create and initialize a repository called ‘my-repo’. 
+
+        ```shell
+        $ mkdr my-repo
+        $ cd my-repo/
+        $ git init
+        ```
+
+    2. Create a files `research.txt` with the sentence: **Science is awesome**
+
+        ```shell
+        $ nano research.txt
+        ```
+        Inside the file type the following and save changes:
+        ```shell
+        Science is awesome
+        ```
+    3. Add and commit the changes. Remember to use a meaning message.
+        
+        ```shell
+        $ git add research.txt
+        $ git commit -m "add awesome science"
+        ```
+    4. Change sentence in ‘research.txt’ to: **Science is messy**
+        ```shell
+        $ nano research.txt
+        ```
+        Change text to this and save changes:
+        ```shell
+        Science is messy
+        ```
+    5. Add and commit.
+        ```shell
+        $ git add research.txt
+        $ git commit -m "change to messy science"
+        ```
+    6. Revert changes to very first version of ‘research.txt’, and commit.
+        ```shell
+        $ git log --oneline # find and copy ID of the firts commit
+        $ git checkout <commit-ID> research.txt # revert changes 
+        $ cat reseach.txt # check version has been recovered
+        $ git commit -m "recover awesome science" # commit very first version
+        ```
+
+* **Check your history log – you should have 3 commits**
+
+    ```shell
+    $ git log # print full log
+    $ git log --graph # print log as text-graph
+    $ git log --oneline # print short version of log
+    ```
+-----
 
 ## 8. REMOTES IN GITHUB
 
