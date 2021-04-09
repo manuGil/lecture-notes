@@ -560,7 +560,8 @@ $ git push origin main
 
 > Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
 
-> Demo using the `count-lines.py`. A helper and the instructor will create a conflict and present a solution.
+> Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
+
 ### a. Create conflict
 
 * [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
@@ -571,7 +572,7 @@ $ git push origin main
 * [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep. Then: add, commit, **push**.
 
 ## 11. Lesson Summary [2 min]
-- Repository innitialization `git init`
+- Repository initialization `git init`
 - Git records changes via commits to the history three
 - Remember the **modify-add-commit** cycle
 - Don't include large datasets in your repositories. Set a `.gitignore` file
