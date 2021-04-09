@@ -28,11 +28,11 @@ $ tail -f ~/.bash_history
 ------
 
 ## PART 1
-### INTRO
+### INTRO [10 min]
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
-### 1.  SETTING UP GIT (Lecture begins) [15 min]
+### 1.  SETTING UP GIT (Lecture begins) [6 min]
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
@@ -288,7 +288,7 @@ $ git status --ignored
 
 -------
 
-**FRIST BREAK** 
+**FIRST BREAK** 
 
 -------
 
@@ -510,6 +510,8 @@ Repo description: *analysis of treatments for inflammation*
 
 > Questions?
 
+### d. Exploring the GitHub GUI (optional)
+
 ----
 **SECOND BREAK**
 
@@ -517,7 +519,7 @@ Repo description: *analysis of treatments for inflammation*
 
 ## PART 4
 
-### 9. COLLABORATING (new) [13 min]
+### 9. COLLABORATING (new) [15 min]
 
 > Explain the concept of social coding. [1.5 min]
 
@@ -563,7 +565,7 @@ $ git push origin main
 ```
 > Ask a participant to push their changes to remote
 
-### 10. CONFLICTS (Demo) [13 min]
+### 10. CONFLICTS (Demo) [15 min]
 
 > Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
 
