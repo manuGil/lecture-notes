@@ -530,6 +530,8 @@ Repo description: *analysis of treatments for inflammation*
 $ cd ~/Desktop
 $ git clone https://github.com/manuGil/workshop-check-in.git
 ```
+
+
 #### b. Create a check-in file
 
 > Make a copy of `check-in/template.md` in the same Directory using your first name. Mind the file extension ".md"
@@ -565,6 +567,14 @@ $ git push origin main
 ```
 > Ask a participant to push their changes to remote
 
+#### e. [Optinoal] Demo Create branches and Pull requests 
+
+```shell
+git branch manuelg
+git checkout manuelg
+```
+> Demo pull request on GitHub
+
 ### 10. CONFLICTS (Demo) [15 min]
 
 > Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
@@ -589,6 +599,12 @@ $ git push origin main
 - Collaborative workflow: **pull, add, commit, push**
 - Be aware of *conflicts*
 
-### 12. Q&A
+### 12. [Optinal] Licencing and Citation [5 min]
+
+> Explaing the importance of licencing and citation for Open Science. 
+
+
+
+### 13. Q&A
 
 > Participants ask questions.
