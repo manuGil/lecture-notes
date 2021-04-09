@@ -468,11 +468,11 @@ $ git checkout f9d7e9c count-lines.py
     ```
 -----
 
-## 8. REMOTES IN GITHUB
+## 8. REMOTES IN GITHUB [10 min]
 
 > Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
-> Explain what  GitHub is **[slides, 2 min]**
+> Explain what GitHub is **[slides, 2 min]**
 
 ### a. Create GitHub Repo 
 > Go to Github and create an empty and public repository called `patients-analysis`.
@@ -503,12 +503,16 @@ Repo description: *analysis of treatments for inflammation*
     $ git pull origin main
     ``` 
 
+> Questions?
+
 ----
 **SECOND BREAK**
 
 -------
 
-## 9. COLLABORATING (new)
+## 9. COLLABORATING (new) [13 min]
+
+> Explain the concept of social coding. [1.5 min]
 
 ### a. Clone workshop-check-in repo
 > Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
@@ -539,29 +543,35 @@ A basic collaborative workflow using git is:
 
 * "update your local repo with git `pull origin main`,"
 * "make your changes and stage them with `git add`,"
-* "commit your changes with `git commit -m', and"
+* "commit your changes with `git commit -m`, and"
 * "upload the changes to GitHub with `git push origin main`"
 
 **Example:**
 
 ```shell
 $ git pull origin main
-$ git add 
-$ git commit -m "add check-in"
+$ git add .
+$ git commit -m "check manuel in"
 $ git push origin main
 ```
+> Ask a participant to push their changes to remote
 
-## 10. CONFLICTS (Demo)
+## 10. CONFLICTS (Demo) [13 min]
 
-> Explanation of when a conflict can happen. Demo using the `count-lines.py`. A helper and the instructor will create a conflict and present a solution.
+> Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
+
+> Demo using the `count-lines.py`. A helper and the instructor will create a conflict and present a solution.
 ### a. Create conflict
 
-* [Helper]: pulls instructor repo, edits `count-lines.py` and adds his/her name as an Author. Add, commit and push changes to remote.
-* [Instructor]: edits local `count-lines.py`, and adds a creation date on the comment section. Add, commit and try to push.
-
+* [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
+* [Helper]: Add, commit and push changes to remote.
+* [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
 
 ### b. Solve conflict 
-* [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep.
+* [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep. Then: add, commit, **push**.
+
+### c. Summarize lesson [2 min]
+
 
 ## 14. Q&A
 
