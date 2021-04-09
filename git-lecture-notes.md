@@ -25,21 +25,22 @@ $ tail -f ~/.bash_history
 |Move pane focus         | Alt + `Arrow keys`   |
 |Resize the focused pane | Alt+Shift + `Arrow keys` |
 
+------
 
-## 0. INTRO
+## PART 1
+### INTRO
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
-## 1.  SETTING UP GIT (Lecture begins) [15 min]
+### 1.  SETTING UP GIT (Lecture begins) [15 min]
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
 Use `git config` with the `--global` option to configure a user name, email address, etc.
 
-### Git Command Syntax
+#### Git Command Syntax
 
 `git <command> [options]`
-
 
 > explian syntax using "how to get help" as example.
 
@@ -48,14 +49,14 @@ Use `git config` with the `--global` option to configure a user name, email addr
     * show help for all commands: `git --help`
     * show help for specific command: e.g., `git init -h`
 
-### a. Setting up a username and email
+#### a. Setting up a username and email
 
 ```bash
 $ git config --global user.name "github-username"
 $ git config --global user.email "github-email@mail.com"
 ```
 
-### b. Configure Line Break 
+#### b. Configure Line Break 
 
 > Use Notepad++ to demo the line breaks
 
@@ -68,13 +69,13 @@ $ git config --global user.email "github-email@mail.com"
     $ git config --global core.autocrlf input
     ```
 
-### c. Check Global Settings
+#### c. Check Global Settings
 ```shell
 $ git config --global --list
 ```
 
 
-## 2. CREATING A REPOSITORY [4 min]
+### 2. CREATING A REPOSITORY [4 min]
 
 > **Key Points:** 
 `git init` initialises a repository.
@@ -84,19 +85,19 @@ Git stores all of its repository data in a hidden `.git` directory.
 Two researchers/programmers are developing code to analyse the inflammation data used in the Python session.
 
 
-### a. Make a Directory on the Desktop
+#### a. Make a Directory on the Desktop
 ```shell
 $ mkdir ~/Desktop/patients
 ```
 
-### b. Initialize Repo
+#### b. Initialize Repo
 
 ```shell
 $ cd ./patients/
 $  git init
 ```
 
-### c. Check Content and Status
+#### c. Check Content and Status
 ```shell
 $ ls -a
 $ git status
@@ -105,10 +106,10 @@ $ git status
 > Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
 
 
-## 3. START TRACKING CHANGES (new) [10 min]
+### 3. START TRACKING CHANGES (new) [10 min]
 > **Key Points:** the modify-add-commit cycle.
 
-### a. Create a Python Script to Count Lines 
+#### a. Create a Python Script to Count Lines 
 > The script will count lines from the standard input
 
 * Create and modify file
@@ -131,18 +132,18 @@ $ git status
     ```shell
     $ ls
     ```
-### b. test the script
+#### b. test the script
 
 ```shell
 $ echo "this is a line" | python count-lines.py 
 ```
 
-### c. Check Git Status
+#### c. Check Git Status
 ```shell
 $ git status
 ```
 
-### d. Start tacking file using git add-commit
+#### d. Start tacking file using git add-commit
 ```shell
 $ git add count-lines.py
 ```
@@ -151,7 +152,7 @@ $ git add count-lines.py
 **Warning: LF will be replaced by CRLF in count-lines.py.
 The file will have its original line endings in your working directory |**
 
-### e. Commit Changes 
+#### e. Commit Changes 
 Creates a snapshot of changes in the repo's history.
 
 ```shell
@@ -167,7 +168,7 @@ Complete sentence: 'This will..' **message** [use slide]
 
 > **Questions?**
 
-## 4. MAKING OTHER CHANGES (new) [5 min]
+### 4. MAKING OTHER CHANGES (new) [5 min]
 
 > We know that a good coding practice is using comments to describe our code. Let's add some helpful comments to our script, e.g., author, python version and a short description of what the script does.
 
@@ -184,7 +185,7 @@ Complete sentence: 'This will..' **message** [use slide]
     ```
     > Explanation of modified files and  commits
 
-### b. Check Differences (review changes)
+#### b. Check Differences (review changes)
 
 ```shell
 $ git diff 
@@ -192,12 +193,12 @@ $ git diff
 
 > Shows the difference between the current state and the most recently saved version (last commit)
 
-### c. Add and Commit
+#### c. Add and Commit
 ```shell
 git add count-lines.py
 ```
 
-### d. Diff vs Diff --staged
+#### d. Diff vs Diff --staged
 
 ```shell
 $ git diff [do not show the difference with staged change]
@@ -212,9 +213,9 @@ Finally,
 git commit -m "add description of expected input".
 ```
 
-## 5. GIT & DIRECTORIES (new) [4 mins]
+### 5. GIT & DIRECTORIES (new) [4 mins]
 
-### a. Create a Directory 'treatments'.
+#### a. Create a Directory 'treatments'.
 > Ask students to create a new directory, try to stage it, and check the status. 
 
 **Solutions:**
@@ -232,28 +233,28 @@ $ mkdir treatments
     ```
 > Explanation: git doesn't track directories
 
-### b. Create Files on the Directory and add Changes
+#### b. Create Files on the Directory and add Changes
 
 ```shell
 $ touch treatments/aspirin.txt treatments/advil.txt
 ```
 
-### c. Stage All Files in Directory
+#### c. Stage All Files in Directory
 
 ```shell
 $ git add treatments/
 $ git status
 ```
 
-### d. Commit
+#### d. Commit
 
 ```shell
 $ git commit -m "add some treatments for patients"
 ```
 
-## 6. IGNORING THINGS (new) [6 mins]
+### 6. IGNORING THINGS (new) [6 mins]
 
-### a. Say you have files you don't want to tack with git
+#### a. Say you have files you don't want to tack with git
 
 > We'll use create some fictitious data files for now.
 
@@ -264,7 +265,7 @@ $ touch data/a.dat data/b.dat big-data.zip
 
 > **Important:** git is not good for tracking large dataset, especially binary files
 
-### b. Create .gitignore File
+#### b. Create .gitignore File
 > At the root of the repo, create a `.gitignore` file, and list all files and directories you don't want to tack.
 
 ```shell
@@ -287,7 +288,7 @@ $ git status --ignored
 
 -------
 
-**FRIST BREAK**
+**FRIST BREAK** 
 
 -------
 
