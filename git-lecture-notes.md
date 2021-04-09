@@ -599,6 +599,12 @@ git checkout manuelg
 - Collaborative workflow: **pull, add, commit, push**
 - Be aware of *conflicts*
 
-### 12. Q&A
+### 12. [Optinal] Licencing and Citation [5 min]
+
+> Explaing the importance of licencing and citation for Open Science. 
+
+
+
+### 13. Q&A
 
 > Participants ask questions.
