@@ -530,6 +530,8 @@ Repo description: *analysis of treatments for inflammation*
 $ cd ~/Desktop
 $ git clone https://github.com/manuGil/workshop-check-in.git
 ```
+
+
 #### b. Create a check-in file
 
 > Make a copy of `check-in/template.md` in the same Directory using your first name. Mind the file extension ".md"
@@ -564,6 +566,14 @@ $ git commit -m "check manuel in"
 $ git push origin main
 ```
 > Ask a participant to push their changes to remote
+
+#### e. [Optinoal] Demo Create branches and Pull requests 
+
+```shell
+git branch manuelg
+git checkout manuelg
+```
+> Demo pull request on GitHub
 
 ### 10. CONFLICTS (Demo) [15 min]
 
