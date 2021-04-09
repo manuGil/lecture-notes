@@ -281,7 +281,7 @@ data/
 * Add and commit .gitignore*
 
 
-### c. Check what's Being Ignored
+#### c. Check what's Being Ignored
 ```shell
 $ git status --ignored
 ```
@@ -292,9 +292,11 @@ $ git status --ignored
 
 -------
 
-## 7. EXPLORING THE HISTORY [16 min]
+## PART 2
 
-### a. Checking the Log
+### 7. EXPLORING THE HISTORY [16 min]
+
+#### a. Checking the Log
 ```shell
 $ git log
 $ git log --graph [optional]
@@ -308,12 +310,12 @@ $ git log --oneline
 
 > Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
 
-### b. HEAD 
+#### b. HEAD 
 > In the following parts (b-e) is more critical to **put attention** than to follow along. Put attention, follow along only if you won't lose focus.
 
 > The **HEAD** refers to the *current active branch* in the git history tree. Because we haven't created any more branches. The current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
 
-### c. Let's add some documentation about the ouput of count-lines.py
+#### c. Let's add some documentation about the ouput of count-lines.py
 
 ```shell
 $ nano count-lines.py
@@ -322,7 +324,7 @@ $ nano count-lines.py
 # Output: a string with the total number of lines
 ```
 
-### d. Check difference compared to HEAD
+#### d. Check difference compared to HEAD
 ```shell
 $ git diff HEAD count-lines.py
 ```
@@ -334,7 +336,7 @@ $ git diff HEAD~3 count-lines.py
 ```
 > `HEAD~1` compares the last commit. `HEAD~3'compares to 3 commits ago. 
 
-### e. Compared using the commit IDs
+#### e. Compared using the commit IDs
 > "You will have to reference the SHA explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
 
 Usage:
@@ -350,7 +352,7 @@ $ git diff commit-id HEAD count-lines.py # [use ID for first commit]
 ```
 > wrap up this section by an illustration of the git history tree
 
-## 7. REVERTING CHANGES (new) [9 min]
+### 7. REVERTING CHANGES (new) [9 min]
 > **Follow along**
 
 > BEFORE THAT: if you haven't add a descripton for `Output` to count-lines.py. Do that using `nano`, and commit!
@@ -367,7 +369,7 @@ $ git add count-lines.py
 $ git commit -m "add description of output"
 ```
 
-### a. Revert to older versions using an identifier. 
+#### a. Revert to older versions using an identifier. 
 >  One way to rever changes is using the commit ID. Restore the latest version. Use `checkout`
 
 ```shell
@@ -379,7 +381,7 @@ $ git checkout <id--commit> count-lines.py # [will revert changes, use firts com
 $ cat count-lines.py
 ```
 
-### b. Restore version to without any docstring [Optional]
+#### b. Restore version to without any docstring [Optional]
 > **Aditional example. Ask particpants to do it. Used if on schedule**
 
 ```shell
@@ -403,17 +405,17 @@ $ git checkout f9d7e9c count-lines.py
     ```
 ------
 
-## EXERCISE [15 mins]
+### EXERCISE [15 mins]
 
-### a. Explain exercise in plenary
+#### a. Explain exercise in plenary
 
 **Exercise description (slides):** https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing
 
-### b. Helpers and partcipants go to a Breakout session
+#### b. Helpers and partcipants go to a Breakout session
 
 > Suggestion: Share your screeen, and ask participats to try things firts by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
 
-### c. Answers
+#### c. Answers
 
 * **Create new repository, use the modify-add-commit cycle, and recover older versions.**
 
@@ -469,18 +471,20 @@ $ git checkout f9d7e9c count-lines.py
     ```
 -----
 
-## 8. REMOTES IN GITHUB [10 min]
+## PART 3
+
+### 8. REMOTES IN GITHUB [10 min]
 
 > Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
 > Explain what GitHub is **[slides, 2 min]**
 
-### a. Create GitHub Repo 
+#### a. Create GitHub Repo 
 > Go to Github and create an empty and public repository called `patients-analysis`.
 
 Repo description: *analysis of treatments for inflammation*
 
-### b. Add Remote to Local Repo
+#### b. Add Remote to Local Repo
 > At your local repository (on the terminal), add the remote repo and push the content.
 
 * connect to remote
@@ -496,7 +500,7 @@ Repo description: *analysis of treatments for inflammation*
     ```
 > **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it, when it needs your username and password. In **Windows**: a small window might pop up, and you will need to enter your password twice (once in the terminal and once in the pop-up window. For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
 
-### c. Check the repo has been completed successfully
+#### c. Check the repo has been completed successfully
 * Go back to your repo page and refresh the browser.
 
 * To pull changes from the remote:
@@ -511,18 +515,20 @@ Repo description: *analysis of treatments for inflammation*
 
 -------
 
-## 9. COLLABORATING (new) [13 min]
+## PART 4
+
+### 9. COLLABORATING (new) [13 min]
 
 > Explain the concept of social coding. [1.5 min]
 
-### a. Clone workshop-check-in repo
+#### a. Clone workshop-check-in repo
 > Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
 
 ```shell
 $ cd ~/Desktop
 $ git clone https://github.com/manuGil/workshop-check-in.git
 ```
-### b. Create a check-in file
+#### b. Create a check-in file
 
 > Make a copy of `check-in/template.md` in the same Directory using your first name. Mind the file extension ".md"
 
@@ -531,14 +537,14 @@ $ cd workshop-check-in
 $ cp check-in/template.md check-in/<your-name>.md
 ```
 
-### c. Edit your check-in file 
+#### c. Edit your check-in file 
 > Edit `<your-name.md>` change the content. You'll see some hints
 
 ```shell
 $ nano check-in/<your-name>.md
 ```
 
-### d. pull, add, commit, and push to the remote
+#### d. pull, add, commit, and push to the remote
 
 A basic collaborative workflow using git is:
 
@@ -557,22 +563,22 @@ $ git push origin main
 ```
 > Ask a participant to push their changes to remote
 
-## 10. CONFLICTS (Demo) [13 min]
+### 10. CONFLICTS (Demo) [13 min]
 
 > Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
 
 > Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
 
-### a. Create conflict
+#### a. Create conflict
 
 * [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
 * [Helper]: Add, commit and push changes to remote.
 * [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
 
-### b. Solve conflict 
+#### b. Solve conflict 
 * [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep. Then: add, commit, **push**.
 
-## 11. Lesson Summary [2 min]
+### 11. LESSON SUMMARY [2 min]
 - Repository initialization `git init`
 - Git records changes via commits to the history three
 - Remember the **modify-add-commit** cycle
@@ -581,6 +587,6 @@ $ git push origin main
 - Collaborative workflow: **pull, add, commit, push**
 - Be aware of *conflicts*
 
-## 14. Q&A
+### 12. Q&A
 
 > Participants ask questions.
