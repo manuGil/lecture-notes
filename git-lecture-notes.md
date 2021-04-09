@@ -570,8 +570,14 @@ $ git push origin main
 ### b. Solve conflict 
 * [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep. Then: add, commit, **push**.
 
-### c. Summarize lesson [2 min]
-
+## 11. Lesson Summary [2 min]
+- Repository innitialization `git init`
+- Git records changes via commits to the history three
+- Remember the **modify-add-commit** cycle
+- Don't include large datasets in your repositories. Set a `.gitignore` file
+- Remotes store copies of the git repositories (e.g., GitHub, GitLab)
+- Collaborative workflow: **pull, add, commit, push**
+- Be aware of *conflicts*
 
 ## 14. Q&A
 
