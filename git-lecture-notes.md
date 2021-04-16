@@ -519,7 +519,23 @@ Repo description: *analysis of treatments for inflammation*
 
 ## PART 4
 
-### 9. COLLABORATING (new) [15 min]
+### 9. CONFLICTS (Demo) [15 min]
+
+> Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
+
+> Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
+
+#### a. Create conflict
+
+* [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
+* [Helper]: Add, commit and push changes to remote.
+* [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
+
+#### b. Solve conflict 
+* [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep. Then: add, commit, **push**.
+
+
+### 10. COLLABORATING (new) [15 min]
 
 > Explain the concept of social coding. [1.5 min]
 
@@ -530,7 +546,6 @@ Repo description: *analysis of treatments for inflammation*
 $ cd ~/Desktop
 $ git clone https://github.com/manuGil/workshop-check-in.git
 ```
-
 
 #### b. Create a check-in file
 
@@ -563,32 +578,17 @@ A basic collaborative workflow using git is:
 $ git pull origin main
 $ git add .
 $ git commit -m "check manuel in"
-$ git push origin main
+$ git push origin main #[This will one work  if participants are adde to the repo as collaborators]
 ```
 > Ask a participant to push their changes to remote
 
-#### e. [Optinoal] Demo Create branches and Pull requests 
+#### e. [Optional] Demo Create branches and Pull requests 
 
 ```shell
 git branch manuelg
 git checkout manuelg
 ```
 > Demo pull request on GitHub
-
-### 10. CONFLICTS (Demo) [15 min]
-
-> Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
-
-> Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
-
-#### a. Create conflict
-
-* [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
-* [Helper]: Add, commit and push changes to remote.
-* [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
-
-#### b. Solve conflict 
-* [Instructor]: explains why the conflict occurred and how to solve it by deciding what changes to keep. Then: add, commit, **push**.
 
 ### 11. LESSON SUMMARY [2 min]
 - Repository initialization `git init`
@@ -602,7 +602,6 @@ git checkout manuelg
 ### 12. [Optinal] Licencing and Citation [5 min]
 
 > Explaing the importance of licencing and citation for Open Science. 
-
 
 
 ### 13. Q&A
