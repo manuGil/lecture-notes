@@ -18,7 +18,7 @@ $ tail -f ~/.bash_history
 ### Windows Terminal (Preview) [Keboard shortcuts]
 
 | Action             | Shortcut                |
-|--------------------|-------------------------|
+|--------------------|--------------------------|
 |Split pane horizontally | Alt + Shift + `-`   | 
 |Split pane vertically   | Alt + Shift + `+`   |
 |Close a pane            | Ctrl+Shift + `w`     |
