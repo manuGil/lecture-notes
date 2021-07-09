@@ -5,7 +5,7 @@
 These lecture notes are relevant for the demo session on *Live Coding* as part of the Carpentry Instructor training.
 During the demo session one, the trainee will be ask to live doe one of of the following episodes:
 
-## EPISODE: SETTIN UP GIT
+## EPISODE 1: SETTIN UP GIT
 
 > In this episode we will learn how to set up Git after you have install Git for the first time. We will set up a **name, and email and a preferred text editor.**
 
@@ -60,7 +60,7 @@ $ git config --global user.email "github-email@mail.com"
 $ git config --global --list
 ```
 
-### 2. CREATING A REPOSITORY [4 min]
+## EPISODE 2: CREATING A REPOSITORY [4 min]
 
 > **Key Points:** 
 `git init` initialises a repository.
@@ -95,11 +95,11 @@ $ git status
 
 > We should be ready to track changes in our repository.
 
-### 3. START TRACKING CHANGES [10 min]
+## EPISODE 3: START TRACKING CHANGES 
 > **Key Points:** the modify-add-commit cycle.
 
 > Ignore the warning about replacing LF with CRLF. |
-#### a. Create, Edit and save a File
+### a. Create, Edit and save a File
 > Make sure you are in `~/Desktop/planets/`
 
 ```shell
@@ -109,7 +109,7 @@ Cold and dry, but everything is my favorite color
 # save the changes
 ```
 
-#### b. Check the content of repo and  file
+### b. Check the content of repo and  file
 
 ```shell
 # check repository
@@ -118,13 +118,13 @@ $ ls
 $ cat mars.txt
 ```
 
-#### c. Check Status
+### c. Check Status
 
 ```shell
 git status
 ```
 
-#### d. Add file to Staging Area
+### d. Add file to Staging Area
 
 ```shell
 git add mars.txt
@@ -133,7 +133,7 @@ git add mars.txt
 git status
 ```
 
-#### e. Commit Changes
+### e. Commit Changes
 Creates a snapshot of the changes in the repository's history three.
 
 ```shell
@@ -148,7 +148,7 @@ The file will have its original line endings in your working directory |**
 
 > Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use illustration]
 
-#### g. Check Status and Log
+### f. Check Status and Log
 
 ```shell
 $ git status # will not print anything
@@ -158,7 +158,7 @@ $ git log # print the repository's history (commits)
 ```
 > Explain output of `git log`.
 
-#### f. Making other changes
+### g. Making other changes
 
 - Add another line to `mars.txt`
 
@@ -188,7 +188,7 @@ $ git add mars.txt
 $ git commit -m "Add concerns about the effect of Mars' moons on Wolfman" 
 ```  
 
-#### g. Diff vs Diff --staged
+### h. Diff vs Diff --staged
 
 ```shell
 $ git diff [do not show the difference with staged change]
@@ -198,7 +198,7 @@ $ git diff --staged [shows the difference with staged change]
 > `git diff`: shows the difference between no-staged changes and the previous commit. `git diff --staged`: shows the difference between staged-changes and the previous commit.
 
 
-#### h. Review the Repo's log
+### i. Review the Repo's log
 
 ```shell
 # full history
@@ -212,7 +212,7 @@ $ git log --oneline --graph
 
 ```
 
-### i. Tracking directories
+### j. Tracking directories
 
 - Git doesn't track directories
 
