@@ -71,7 +71,12 @@ network={
 
 6. Use a terminal or Putty (Windows) to SSH into the cluster. You must know the IP address of the cluster. Input 'yes' when ask about the ECDSA key, then enter the password for the user 'pi'.
 
-Should we configure unique name for the clusters to avoid the hasle of dealing with Ips?
+> Should we configure unique name for the clusters to avoid the hasle of dealing with Ips? No, this only possible by seetting a DNS server.
+
+> Need to find a way to find the IP of every cluster. Can this be easily done via the router interfase?
+
+> We should have a monitor and keyboard for trouble shooting in each room
+
 
 If using a terminal
 ```bash
@@ -81,6 +86,30 @@ ssh pi@XXX.XXX.XXX.XXXX
 If using PuTTY
 
 [Add screenshots]
+
+7.  Power on the cluster node (Pi Zeros).  You Hat and the Pi Zeros will light up.
+
+```bash
+clusterctl on p1 p2
+```
+
+8. Check the Pi Zeros with the correct image are connected properly. The correct USB port mapping must be a follows:
+
+* USB Port 4 -> Pi Zero P1
+* USB Port 3 -> Pi Zero P2
+
+
+> ABOUT IPS
+
+
+9. Configure Nodes for SLURM
+
+```bash
+sudo hostname node01       # whatever name you chose
+sudo nano /etc/hostname    # change the hostname here too
+sudo nano /etc/hosts       # change "raspberrypi" to "node01"
+```
+
 
 
 ## HPC Computations
@@ -95,3 +124,8 @@ This is an example of using a computer cluster to parallelize resource-demanding
 ### Sorting Data
 
 This is a exampel of using a computer cluster to 
+
+
+## Who to know
+
+* What's the Alert LED on the Hat for?
