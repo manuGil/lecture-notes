@@ -581,7 +581,7 @@ Move back to the repo directory: `~/Desktop/
     $ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
     $ git push -u origin main 
     ```
-> **known issue with push.** If your operating system has a password manager configured, `git push` will try to use it, when your username and password is requred. In **Windows**: a small window might pop up, and you will need to enter your password twice (once in the terminal and once in the pop-up window). For typing the username and password only once in the terminal. Type the following before using **git push**: `unset SSH_ASKPASS`
+
 
 #### c. Check the Content Repositoy is in GitHub
 * Go back to your repo page and refresh the browser.
