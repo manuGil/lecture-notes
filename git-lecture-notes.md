@@ -1,12 +1,12 @@
 # LECTURE NOTES: Version Control with Git
 
 **Instructor:** *Manuel G. Garcia*
+**Last update:** *20-10-2021*
 
-These lecture notes are relevant for the session on **09-April-2021**, and focuses on a beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
-The context and flow of the lesson have been addapted to better fit the audience.
+These lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
+The context and flow of this lesson have been addapted to better fit the audience.
 
 ## PREPARATION
-
 To set up the command history on two terminals do the following:
 
 1. On main terminal:
@@ -19,7 +19,7 @@ $ tail -f ~/.bash_history
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
-Useful shortcuts for the app Windows Terminal (Preview) on Windows 10.
+Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
 
 | Action             | Shortcut                |
 |--------------------|--------------------------|
@@ -111,10 +111,15 @@ $ git status
 
 
 ### 3. START TRACKING CHANGES [10 min]
-> **Key Points:** the modify-add-commit cycle.
+> **Key Points:** How git track changes and the modify-add-commit cycle.
 
 #### a. Create a Python Script to Count Lines 
-> The script will count lines from the standard input
+> The script will count lines from the standard input. For this Python must be accessible from the terminal.
+
+* Check Python is accessible from Git Bash
+    ```shell
+    $ python --version
+    ```
 
 * Create and modify file
 
@@ -142,6 +147,10 @@ $ git status
 $ echo "this is a line" | python count-lines.py 
 ```
 
+```shell
+$ echo -e "this is a line, \n thi is another line" | python count-lines.py 
+```
+
 #### c. Check Git Status
 ```shell
 $ git status
@@ -167,7 +176,10 @@ git commit -m "create  script count-lines.py"
 
 > A good commit message is short (< 50 characters), and completes the sentence: 'This will..' **message** [use slide] 
 
-> Explanation of **staging**. `git add` is used to define which files we want to commit. `git add` specifies what changes to staged; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use illustration]
+> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use illustration]
+
+> Explanation of **modify-add-commit** cycle. [Use illustration]
+
 
 > **Questions?**
 
@@ -179,7 +191,7 @@ git commit -m "create  script count-lines.py"
 
     ```python
     """ This module counts the number of lines in standard input
-    Input: any string from the system's standard input 
+    Input: a string from the system's standard input 
     """
     ```
 * check status
@@ -267,7 +279,7 @@ $ mkdir data
 $ touch data/a.dat data/b.dat big-data.zip
 ```
 
-> **Important:** git is not good for tracking large dataset, especially binary files. This is because binary files will be fully copied to the repository history when committed, and changes to tracked binary files will cause Git to save a copy file of the file for evey commit. Therfore, increasing the size of the repository rapidly.
+> **Important:** git is not good for tracking large dataset, especially binary files. This is because binary files will be fully copied to the repository history when committed, and changes to tracked binary files will cause Git to save a copy file of the file for every commit. Therefore, increasing the size of the repository rapidly.
 
 #### b. Create .gitignore File
 > At the root of the repository, create a `.gitignore` file, and type in it the path and name of all files and directories you don't want to tack.
@@ -277,7 +289,15 @@ $ nano .gitignore
 ```
 Type:
 
+```shell
+big-data.zip
+data/
 ```
+
+A good practice is to use comments to explain why files and directories are ignored. For example:
+
+```shell
+# data files:
 big-data.zip
 data/
 ```
@@ -289,6 +309,8 @@ data/
 ```shell
 $ git status --ignored
 ```
+
+> **Q&A**
 
 -------
 
@@ -340,7 +362,7 @@ $ git diff HEAD~3 count-lines.py
 > `HEAD~1` compares with the last commit. `HEAD~3` compares to 3 commits ago. 
 
 #### e. Comparison Using the commit IDs
-> "You will have to reference the SHA explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
+> "You will have to reference the Hash explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
 
 Usage:
 
@@ -353,13 +375,13 @@ $ git log --oneline # [copy an ID to compare]
 $ git diff commit-id count-lines.py # [use ID for first commit]
 $ git diff commit-id HEAD count-lines.py # [use ID for first commit]
 ```
-> Wrap up this secton by showing an illustration of the git history tree
+> Wrap up this section by showing an illustration of the git history tree
 
 ### 7. REVERTING CHANGES [9 min]
 
 > **Follow along**
 
-> BEFORE THAT: if you haven't add a descripton for `uutput` to count-lines.py. Do that using `nano`, and commit the changes.
+> BEFORE THAT: if you haven't add a descripton for `Output` to count-lines.py. Do that using `nano`, and commit the changes.
 
 ```shell
 $ nano count-lines.py
@@ -374,7 +396,7 @@ $ git commit -m "add description of output"
 ```
 
 #### a. Revert to Older Versions Using an Identifier. 
->  One way to rever changes is using the commit ID. Restore the latest version using  the `checkout` command.
+>  One way to revert changes is using the commit ID. Restore latest version in the history treee using  the `checkout` command.
 
 ```shell
 $ git log --oneline # [copy ID of "description input"]
@@ -385,7 +407,7 @@ $ git checkout <id--commit> count-lines.py # [will revert changes, use firts com
 $ cat count-lines.py
 ```
 
-#### b. Restore the verson without any Docstring [Optional]
+#### b. Restore the version without any Docstring [Optional]
 
 > **Additional example, used only if on schedule. Ask particpants to do them by themselves.**
 
@@ -393,13 +415,13 @@ $ cat count-lines.py
 $ git checkout f9d7e9c count-lines.py  
 ```
 
-> **Changes go to the staging area; they are not committed.** However, we always can go back to any version we have committed. To go back to the newest version by checking out to HEAD.
+> **Changes go to the staging area; they are not committed.** However, we always can go back to any version we have committed. To go back to the newest version, check out to HEAD.
 
 * check out to HEAD
 
     ```shell
     $ git checkout HEAD count-lines.py 
-    $ cat count-lines.py [notice the file is back to the newest committed version are back]
+    $ cat count-lines.py [notice the file is back to the newest committed version]
     ```
 
 * Add and Commit the newest version
@@ -474,7 +496,7 @@ $ git checkout f9d7e9c count-lines.py
     $ git log --graph # print log as text-graph
     $ git log --oneline # print short version of log
     ```
------
+--------
 
 ## PART 3
 
@@ -484,17 +506,73 @@ $ git checkout f9d7e9c count-lines.py
 
 > Explain what GitHub is **[slides, 2 min]**
 
+#### 0. Conect to GitHub via SSH [Technical Break]
+
+> Since recentrly, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** to explain what a SSH connection entitles.
+
+To connect via SSH do the following:
+
+* Create a Key-pair inside the `.ssh`  in the Home directory
+
+    ```shell
+    # move to Home directory
+    $ cd ~
+    # create key
+    $ ssh-keygen -t ed25519 -C "your_email@example.com"
+    # save the defualt location and file name: ~/.ssh/id_ed25519
+    ```
+* Check the keys have been created
+
+    ```shell
+    $ ls ~/.ssh/
+    ```
+
+* Start the `ssh-agent` and add private key to agent:
+
+    ```shell
+    # start agent
+    $ eval "$(ssh-agent -s)"
+    
+    # add private key
+    $ ssh-add ~/.ssh/id_ed25519
+    ```
+
+> Info on how to (start the ssh-agent automatically)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows]
+Mac and Linux user don't have to worry about this.
+
+* Copy public key to GitHub:
+
+    ```shell
+    $ clip < .ssh/id_ed25519.pub
+    ```
+
+* Go to GitHub, explain the basics of the interface and add the SSH key.
+
+Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
+
+* Test SSH connection
+
+    ```shell
+    $ ssh -T git@github.com
+    ```
+
+> More information on working with (SSH keys and GitHub.)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh]
+
+> Check the info on (Troubleshooting SSH[https://docs.github.com/en/authentication/troubleshooting-ssh]) for GitHub.
+
 #### a. Create GitHub Repo 
 > Go to Github and create an empty and public repository called `patients-analysis`.
 
 - Repo description: *analysis of treatments for inflammation*
 
 #### b. Add Remote to Local Repo
+
+Move back to the repo directory: `~/Desktop/
 > In your local repository (on the terminal), add the remote repository and push the content.
 
 * Connect to remote
     ```shell
-    $ git remote add origin <https://url/to/your-remote-repo>
+    $ git remote add origin git@github.com:<user-name>/<repo-name>.git
     ```
 
 * Check that remote was added
