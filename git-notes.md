@@ -501,13 +501,13 @@ $ git checkout f9d7e9c count-lines.py
 
 ## PART 3
 
-### 8. REMOTES IN GITHUB [10 min]
+### 8. REMOTES IN GITHUB [20 min]
 
 > Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
 > Explain what GitHub is **[slides, 2 min]**
 
-#### 0. Conect to GitHub via SSH [Technical Break]
+#### 0. Conect to GitHub via SSH [Technical Break, 10 min]
 
 > Since recentrly, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** to explain what a SSH connection entitles.
 
