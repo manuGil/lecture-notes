@@ -578,10 +578,9 @@ Move back to the repo directory: `~/Desktop/
 * Check that remote was added
     ```shell
     $ git remote -v
-    $ git branch -M main [will change the name of the main branch of the repo to make it more friendly]
+    $ git branch -M main # [will change the name of the main branch of the repo to make it more friendly]
     $ git push -u origin main 
     ```
-
 
 #### c. Check the Content Repositoy is in GitHub
 * Go back to your repo page and refresh the browser.
@@ -598,7 +597,7 @@ Move back to the repo directory: `~/Desktop/
 ----
 **SECOND BREAK**
 
-> Invite several participants as collaborator to the repository `workshop-check-in`
+> Invite several participants as collaborators to the repository `workshop-check-in`
 
 -------
 
@@ -606,7 +605,7 @@ Move back to the repo directory: `~/Desktop/
 
 ### 9. CONFLICTS (Demo) [15 min]
 
-> Explanation of when a conflict can happen: "A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other."
+> Explanation of when a conflict can happen: "A conflict arises when two collaborators make changes to the same line in a file, or when a file has been deleted by one collaborator, but edited by  another."
 
 > Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
 
@@ -625,7 +624,7 @@ Move back to the repo directory: `~/Desktop/
 
 #### a. Clone workshop-check-in Repository
 
-> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-check-in.git`
+> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-checkin.git`
 
 ```shell
 $ cd ~/Desktop
@@ -638,7 +637,7 @@ $ git clone https://github.com/manuGil/workshop-check-in.git
 
 ```shell
 $ cd workshop-check-in
-$ cp check-in/template.md check-in/<my-name-file>.md
+$ cp check-in/template.md check-in/<my-nickname-file>.md
 ```
 
 #### c. Edit your Check-in file 
