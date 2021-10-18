@@ -612,6 +612,7 @@ Move back to the repo directory: `~/Desktop/
 
 #### a. Create conflict
 
+* [Instructor]: adds helper as collaborator to his repository in GitHub.
 * [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
 * [Helper]: Add, commit and push changes to remote.
 * [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
