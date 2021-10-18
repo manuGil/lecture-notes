@@ -1,6 +1,7 @@
 # LECTURE NOTES: Version Control with Git
 
 **Instructor:** *Manuel G. Garcia*
+
 **Last update:** *20-10-2021*
 
 These lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
@@ -310,7 +311,7 @@ data/
 $ git status --ignored
 ```
 
-> **Q&A**
+> **Questions?**
 
 -------
 
