@@ -117,10 +117,6 @@ $ git status
 #### a. Create a Python Script to Count Lines 
 > The script will count lines from the standard input. For this Python must be accessible from the terminal.
 
-* Check Python is accessible from Git Bash
-    ```shell
-    $ python --version
-    ```
 
 * Create and modify file
 
@@ -143,6 +139,11 @@ $ git status
     $ ls
     ```
 #### b. Test the Script
+
+```shell
+    # check Python is accessible from Git bash
+    $ python --version
+```
 
 ```shell
 $ echo "this is a line" | python count-lines.py 
@@ -397,7 +398,7 @@ $ git commit -m "add description of output"
 ```
 
 #### a. Revert to Older Versions Using an Identifier. 
->  One way to revert changes is using the commit ID. Restore latest version in the history treee using  the `checkout` command.
+>  One way to revert changes is using the commit ID. Restore latest version in the history tree using  the `checkout` command.
 
 ```shell
 $ git log --oneline # [copy ID of "description input"]
