@@ -510,7 +510,7 @@ $ git checkout f9d7e9c count-lines.py
 
 #### 0. Conect to GitHub via SSH [Technical Break, 10 min]
 
-> Since recentrly, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** to explain what a SSH connection entitles.
+> Recently, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** to explain what a SSH connection entitles.
 
 To connect via SSH do the following:
 
@@ -521,7 +521,7 @@ To connect via SSH do the following:
     $ cd ~
     # create key
     $ ssh-keygen -t ed25519 -C "your_email@example.com"
-    # save the defualt location and file name: ~/.ssh/id_ed25519
+    # save to the default location and file name: ~/.ssh/id_ed25519
     ```
 * Check the keys have been created
 
@@ -538,6 +538,7 @@ To connect via SSH do the following:
     # add private key
     $ ssh-add ~/.ssh/id_ed25519
     ```
+    > Instruct SSH to use key files in different locations: `ssh -i <path/private/keyfile>`
 
 > Info on how to (start the ssh-agent automatically)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows]
 Mac and Linux user don't have to worry about this.
@@ -613,9 +614,9 @@ Move back to the repo directory: `~/Desktop/
 
 #### a. Create conflict
 
-* [Instructor]: explains how to add collaborators to a repository in GitHub. He add helper as collaborator.
-* [Helper]: pulls instructor repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
-* [Helper]: Add, commit and push changes to remote.
+* [Instructor]: explains how to add collaborators to a repository in GitHub. He adds helper as collaborator.
+* [Helper]: pulls instructor's repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
+* [Helper]: Adds, commits and pushes changes to remote.
 * [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
 
 #### b. Solve conflict 
@@ -688,7 +689,7 @@ git checkout manuelg
 
 ### 12. [Optinal] Licencing and Citation [5 min]
 
-> Explaing the importance of licencing and citation for Open Science. 
+> Explaing the importance of licencing and citation for Open Science. Share template for compliance with TU Deflt software policy: https://github.com/manuGil/fair-code 
 
 
 ### 13. Q&A
