@@ -508,7 +508,7 @@ $ git checkout f9d7e9c count-lines.py
 
 > Explain what GitHub is **[slides, 2 min]**
 
-#### 0. Conect to GitHub via SSH [Technical Break, 10 min]
+#### 0. Conect to GitHub via SSH [Technical Break, 30 min]
 
 > Recently, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** to explain what a SSH connection entitles.
 
