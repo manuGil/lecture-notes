@@ -421,7 +421,7 @@ $ git commit -m "add description of output"
 ```
 
 #### a. Revert to Older Versions Using an Identifier. 
->  One way to revert changes is using the commit ID. Restore latest version in the history tree using  the `checkout` command.
+>  One way to revert changes is using the commit ID. Restore latest version in the history tree using  the `checkout` command. This commands moves a version to the working directory.
 
 ```shell
 $ git log --oneline # [copy ID of "description input"]
@@ -529,11 +529,11 @@ $ git checkout f9d7e9c count-lines.py
 
 > Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
-> Explain what GitHub is **[slides, 2 min]**
+> Explain what GitHub is **[slide 13, 2 min]**
 
 #### 0. Conect to GitHub via SSH [Technical Break, 10 min]
 
-> Recently, GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** to explain what a SSH connection entitles.
+> GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** [slide 14] to explain what a SSH connection entitles.
 
 To connect via SSH do the following:
 
@@ -552,7 +552,7 @@ To connect via SSH do the following:
     $ ls ~/.ssh/
     ```
 
-* Start the `ssh-agent` and add private key to agent:
+* **Windows Users**: Start the `ssh-agent` and add private key to agent. *Mac and Linux user don't have to worry about this.*
 
     ```shell
     # start agent
@@ -564,7 +564,7 @@ To connect via SSH do the following:
     > Instruct SSH to use key files in different locations: `ssh -i <path/private/keyfile>`
 
 > Info on how to (start the ssh-agent automatically)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows]
-Mac and Linux user don't have to worry about this.
+
 
 * Copy public key to GitHub:
 
@@ -581,6 +581,7 @@ Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
     ```shell
     $ ssh -T git@github.com
     ```
+> Check everyone succeeded!
 
 > More information on working with (SSH keys and GitHub.)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh]
 
@@ -604,7 +605,7 @@ Move back to the repo directory: `~/Desktop/
 * Check that remote was added
     ```shell
     $ git remote -v
-    $ git branch -M main # [will change the name of the main branch of the repo to make it more friendly]
+    $ git branch -M main # [Optional if config was changed. This will change the name of the main branch of the repo to make it more friendly]
     $ git push -u origin main 
     ```
 
@@ -616,13 +617,14 @@ Move back to the repo directory: `~/Desktop/
     $ git pull origin main
     ``` 
 
-> Questions?
+> **Questions?**
 
 ### d. Exploring the GitHub GUI (optional)
 
 ----
 **SECOND BREAK**
 
+[CONTINUE HERE: CREATE REPO!!]
 > Invite several participants as collaborators to the repository `workshop-check-in`
 
 -------
@@ -713,6 +715,8 @@ git checkout manuelg
 ### 12. [Optinal] Licencing and Citation [5 min]
 
 > Explaing the importance of licencing and citation for Open Science. Share template for compliance with TU Deflt software policy: https://github.com/manuGil/fair-code 
+
+> A note git in IDEs
 
 
 ### 13. Q&A
