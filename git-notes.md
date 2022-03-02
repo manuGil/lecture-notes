@@ -1,14 +1,20 @@
 # LECTURE NOTES: Version Control with Git
 
+*Checklist:*
+Include commands for McOS
+Check set up
+Check slides (add note on IDEs)
+Extend collaboration
+
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *20-10-2021*
+**Last update:** *03-03-2022*
 
 These lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
 The context and flow of this lesson have been addapted to better fit the audience.
 
 ## PREPARATION
-To set up the command history on two terminals do the following:
+The instructor sets up the command history on two terminals do the following:
 
 1. On main terminal:
 ```bash
@@ -34,10 +40,14 @@ Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
 
 ## PART 1
 ### INTRODUCTION [10 min]
+> Presentation
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
+> Explain the terminal and instructor's set up.
+
 ### 1.  SETTING UP GIT (Lecture begins) [6 min]
+
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
@@ -49,7 +59,7 @@ Use `git config` with the `--global` option to configure a user name, email addr
 
 > Explian syntax using "how to get help" as example.
 
-* How to Get Help with the Commands 
+* How to Get Help with the Commands (*Type along*)
 
     * show help for all commands: `git --help`
     * show help for specific command: e.g., `git init -h`
@@ -73,12 +83,17 @@ $ git config --global user.email "github-email@mail.com"
     ```shell
     $ git config --global core.autocrlf input
     ```
+* Configure Default Innitial Branch
+  Change initial branch from `master` to `main`
+
+    ```shell
+    $ git config --global init.defaultBranch main
+    ```
 
 #### c. Check Global Settings
 ```shell
 $ git config --global --list
 ```
-
 
 ### 2. CREATING A REPOSITORY [4 min]
 
@@ -88,7 +103,6 @@ Git stores all of its repository data in a hidden `.git` directory.
 
 > **Use case:**
 Two researchers/programmers are developing code to analyse the inflammation data used in the Python session.
-
 
 #### a. Make a Directory on the Desktop
 ```shell
