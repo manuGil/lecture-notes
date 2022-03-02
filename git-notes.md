@@ -122,20 +122,27 @@ $ ls -a
 $ git status
 ```
 
-> Explanation: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
-
+> Explanation (slide 9): initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
 
 ### 3. START TRACKING CHANGES [10 min]
 > **Key Points:** How git track changes and the modify-add-commit cycle.
 
 #### a. Create a Python Script to Count Lines 
-> The script will count lines from the standard input. For this Python must be accessible from the terminal.
-
+> The script will count lines from the standard input. For this Python must be accessible from the terminal. But if not, it is not essential.
 
 * Create and modify file
 
     ```shell
+    # Windows OS
     $ nano count-lines.py
+    ```
+    ```shell
+    # MacOS / sublime
+    $ subl count-lines.py
+    ```
+    ```shell
+    # Linux / Vim
+    $ vim count-lines.py
     ```
 * Type code
 
@@ -164,7 +171,7 @@ $ echo "this is a line" | python count-lines.py
 ```
 
 ```shell
-$ echo -e "this is a line, \n thi is another line" | python count-lines.py 
+$ echo -e "this is a line, \n this is another line" | python count-lines.py 
 ```
 
 #### c. Check Git Status
@@ -188,14 +195,15 @@ Creates a snapshot of the changes in the repository's history three.
 git commit -m "create  script count-lines.py"
 ```
 
-> `git commit -a` or `--all` "stage all changes and write them to history"
 
-> A good commit message is short (< 50 characters), and completes the sentence: 'This will..' **message** [use slide] 
 
-> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use illustration]
+> A good commit message is short (< 50 characters), and completes the sentence: 'This will..' **message**.
 
-> Explanation of **modify-add-commit** cycle. [Use illustration]
+> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use slide 10]
 
+> Explanation of **modify-add-commit** cycle. [Use slide 11]
+
+> `git commit -a` or `--all` "stage all changes and write them to history". `git add .` on root directoy adds all changes to staging area.
 
 > **Questions?**
 
@@ -207,23 +215,22 @@ git commit -m "create  script count-lines.py"
 
     ```python
     """ This module counts the number of lines in standard input
-    Input: a string from the system's standard input 
+    Input: strings from the system's standard input 
     """
     ```
 * check status
     ```shell
     $ git status
     ```
-    > Explanation: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desiable because is up to the user to decide when and what to commit to the repository's history.
+    > **Explanation**: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desiable because is up to the user to decide when and what to commit to the repository's history.
     
-
 #### b. Check Differences (review changes)
 
 ```shell
 $ git diff 
 ```
 
-> Shows the difference between the current state and the most recently saved version (last commit)
+> Shows the difference between the current state of the repository, and the most recently recorded version (last commit)
 
 #### c. Add and Commit
 ```shell
@@ -263,12 +270,12 @@ $ mkdir treatments
     $ git add treatments
     $ git status
     ```
-> Explanation: git doesn't track empty directories. Git tracks the content of a file and its name (including its path).
+> **Explanation**: git doesn't track empty directories. Git tracks the content of a file (lines) and its name (including its path). 
 
-#### b. Create Files on the Directory and Add Changes
+#### b. Create Files on the Directory
 
 ```shell
-$ touch treatments/aspirin.txt treatments/advil.txt
+$ touch treatments/aspirin.txt treatments/ibuprofen.txt
 ```
 
 #### c. Stage All Files in the Directory
@@ -286,7 +293,7 @@ $ git commit -m "add some treatments for patients"
 
 ### 6. IGNORING THINGS [6 mins]
 
-Say you have files you don't want to tack with git.
+Say you have files you don't want to tack with git. For example, data files.
 
 > We'll create some fictitious data files for now.
 
@@ -295,10 +302,10 @@ $ mkdir data
 $ touch data/a.dat data/b.dat big-data.zip
 ```
 
-> **Important:** git is not good for tracking large dataset, especially binary files. This is because binary files will be fully copied to the repository history when committed, and changes to tracked binary files will cause Git to save a copy file of the file for every commit. Therefore, increasing the size of the repository rapidly.
+> **Important:** git is not good for tracking large dataset, especially binary files. This is because binary files will be fully copied to the repository history when committed, and *changes to tracked binary files will cause Git to save a copy of the files for every commit.* Therefore, increasing the size of the repository rapidly.
 
 #### b. Create .gitignore File
-> At the root of the repository, create a `.gitignore` file, and type in it the path and name of all files and directories you don't want to tack.
+> At the root of the repository, create a `.gitignore` file, and type in it the path and name of all files and directories you don't want to track.
 
 ```shell
 $ nano .gitignore
@@ -306,6 +313,7 @@ $ nano .gitignore
 Type:
 
 ```shell
+# data files
 big-data.zip
 data/
 ```
@@ -352,7 +360,7 @@ $ git log --oneline
 > Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
 
 #### b. HEAD 
-> In the following parts (b-e) is more important to **put attention** than to follow along. Put attention, follow along only if you won't lose focus.
+> In the following parts (b-e) is more important to **put attention** than to follow along. Put attention, follow along only if you won't lose focus. [Slide 12]
 
 > The **HEAD** is a **pointer** that refers to the *current active branch* in the git, which can be that last commit we made or the last commit that was checkout into the working directory. We haven't created more branches and the current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
 
@@ -369,7 +377,7 @@ $ nano count-lines.py
 ```shell
 $ git diff HEAD count-lines.py
 ```
-> This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use **HEAD** to check the difference between the current state of `count-lines.py` (in the working directory) and previous commits.
+> This is the same as not using HEAD, because the HEAD is currently pointing to the latest commit. However, we can use **HEAD** to check the difference between the current state of `count-lines.py` (in the working directory) and previous commits (on the history tree).
 
 ```shell
 $ git diff HEAD~1 count-lines.py 
@@ -383,6 +391,7 @@ $ git diff HEAD~3 count-lines.py
 Usage:
 
 **git diff** `<start-commit-SHA>` **HEAD** `<file>`
+> When comparing two commits IDs, **THIS compared to THAT**
 
 ```shell
 $ git log --oneline # [copy an ID to compare]
@@ -391,7 +400,7 @@ $ git log --oneline # [copy an ID to compare]
 $ git diff commit-id count-lines.py # [use ID for first commit]
 $ git diff commit-id HEAD count-lines.py # [use ID for first commit]
 ```
-> Wrap up this section by showing an illustration of the git history tree
+> Wrap up this section by showing an illustration of the git history tree [slide 12]
 
 ### 7. REVERTING CHANGES [9 min]
 
