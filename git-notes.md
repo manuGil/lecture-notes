@@ -1,14 +1,10 @@
 # LECTURE NOTES: Version Control with Git
 
-*Checklist:*
-Include commands for McOS
-Check set up
-Check slides (add note on IDEs)
-Extend collaboration
-
 **Instructor:** *Manuel G. Garcia*
 
 **Last update:** *03-03-2022*
+
+**Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1cCQcpklA-8EXQXZJ39f5tiYhD9BFabLV/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
 These lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
 The context and flow of this lesson have been addapted to better fit the audience.
@@ -609,7 +605,7 @@ Move back to the repo directory: `~/Desktop/
     $ git push -u origin main 
     ```
 
-#### c. Check the Content Repositoy is in GitHub
+#### c. Check the Content's Repositoy is in GitHub
 * Go back to your repo page and refresh the browser.
 
 * To pull changes from the remote:
@@ -624,8 +620,7 @@ Move back to the repo directory: `~/Desktop/
 ----
 **SECOND BREAK**
 
-[CONTINUE HERE: CREATE REPO!!]
-> Invite several participants as collaborators to the repository `workshop-check-in`
+> Invite several participants as collaborators to the repository [workshop-checkin](https://github.com/manuGil/workshop-checkin)
 
 -------
 
@@ -633,7 +628,7 @@ Move back to the repo directory: `~/Desktop/
 
 ### 9. CONFLICTS (Demo) [15 min]
 
-> Explanation of when a conflict can happen: "A conflict arises when two collaborators make changes to the same line in a file, or when a file has been deleted by one collaborator, but edited by  another."
+> Explanation of when a conflict can happen: "A conflict arises when two collaborators make changes to the same line in a file, or when a file has been deleted by one collaborator, but edited by  another." [Slide 15]
 
 > Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
 
@@ -645,7 +640,7 @@ Move back to the repo directory: `~/Desktop/
 * [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
 
 #### b. Solve conflict 
-* [Instructor]: explains why the conflict occurred and how to solve it by  editing `count-lines.py` and deciding what changes to keep. Then: add, commit,and  **push**.
+* [Instructor]: explains why the conflict occurred and how to solve it by  editing `count-lines.py` and deciding what changes to keep. Then: add, commit, and  **push**.
 
 ### 10. COLLABORATING  [15 min]
 
@@ -657,12 +652,12 @@ Move back to the repo directory: `~/Desktop/
 
 ```shell
 $ cd ~/Desktop
-$ git clone https://github.com/manuGil/workshop-check-in.git
+$ git clone https://github.com/manuGil/workshop-checkin.git
 ```
 
 #### b. Create a Check-in file
 
-> Make a copy of `check-in/template.md` in the same Directory; remane the file using a unique name (e.g. three first laters of your name and the last two digits of your phone number. Mind the file extension ".md"
+> Make a copy of `check-in/template.md` in the same Directory; remane the file using a unique name (e.g. three first letters of your name and the last two digits of your phone number. Mind the file extension ".md"
 
 ```shell
 $ cd workshop-check-in
@@ -693,7 +688,7 @@ $ git add .
 $ git commit -m "check manuel in"
 $ git push origin main #[This works only if participants are added to the repository as collaborators]
 ```
-> Ask a participant to push their changes to remote, and show the changes int the GitHuh GUI.
+> Ask a participant to push their changes to remote, and show the changes in the GitHuh GUI.
 
 #### e. [Optional] Demo Create branches and Pull requests 
 
@@ -707,7 +702,7 @@ git checkout manuelg
 - Repository initialization `git init`
 - Git records changes via commits to the history three
 - Remember the **modify-add-commit** cycle
-- Don't include large datasets in your repositories. Set a `.gitignore` file
+- Don't include large datasets (in binary) in your repositories. Set a `.gitignore` file
 - Remotes store copies of the git repositories (e.g., GitHub, GitLab)
 - Collaborative workflow using branches: **pull, add, commit, push, pull request**
 - Be aware of *conflicts*
@@ -716,8 +711,7 @@ git checkout manuelg
 
 > Explaing the importance of licencing and citation for Open Science. Share template for compliance with TU Deflt software policy: https://github.com/manuGil/fair-code 
 
-> A note git in IDEs
-
+> A note on Git in IDEs
 
 ### 13. Q&A
 
