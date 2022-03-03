@@ -79,8 +79,8 @@ $ git config --global user.email "github-email@mail.com"
     ```shell
     $ git config --global core.autocrlf input
     ```
-* Configure Default Innitial Branch
-  Change initial branch from `master` to `main`
+* Configure Default Innitial Branch.
+  Change from `master` to `main`
 
     ```shell
     $ git config --global init.defaultBranch main
