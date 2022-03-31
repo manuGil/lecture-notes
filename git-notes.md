@@ -639,10 +639,13 @@ Move back to the repo directory: `~/Desktop/
 * [Instructor]: explains how to add collaborators to a repository in GitHub. He adds helper as collaborator.
 * [Helper]: pulls instructor's repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
 * [Helper]: Adds, commits and pushes changes to remote.
-* [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and try to **pull**.
+* [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and and try to **pull**
+* [Instructor] commits changes *withouth commit message*. Explains that Git know that the conflict appeared during a merge and has prepared a commit message.  and try to **pull**.
 
 #### b. Solve conflict 
-* [Instructor]: explains why the conflict occurred and how to solve it by  editing `count-lines.py` and deciding what changes to keep. Then: add, commit, and  **push**.
+* [Instructor]: explains why the conflict occurred and how to solve it by  editing `count-lines.py` and deciding what changes to keep. Then: adds `count-lines.py`, and commit *withouth commit message*.
+   > Explain that Git know that the conflict appeared during a merge and has prepared a commit message.
+* [Instructor]: Do **push** to `origin` and shows the code in remote repo.
 
 ### 10. COLLABORATING  [15 min]
 
