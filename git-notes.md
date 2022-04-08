@@ -2,7 +2,7 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *03-03-2022*
+**Last update:** *08-04-2022*
 
 **Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1cCQcpklA-8EXQXZJ39f5tiYhD9BFabLV/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
@@ -457,7 +457,7 @@ $ git checkout f9d7e9c count-lines.py
 
 #### a. Explain exercise in plenary
 
-**Exercise description (slides):** https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing
+**[Exercise description (slides):](https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing)**
 
 #### b. Helpers and partcipants go to a Breakout session
 
