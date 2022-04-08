@@ -559,7 +559,7 @@ To connect via SSH do the following:
     ```
     > Instruct SSH to use key files in different locations: `ssh -i <path/private/keyfile>`
 
-> Info on how to (start the ssh-agent automatically)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows]
+> Info on how to [start the ssh-agent automatically](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows)
 
 
 * Copy public key to GitHub:
@@ -579,9 +579,9 @@ Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
     ```
 > Check everyone succeeded!
 
-> More information on working with (SSH keys and GitHub.)[https://docs.github.com/en/authentication/connecting-to-github-with-ssh]
+> More information on working with [SSH keys and GitHub.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-> Check the info on (Troubleshooting SSH[https://docs.github.com/en/authentication/troubleshooting-ssh]) for GitHub.
+> Check the info on [Troubleshooting SSH](https://docs.github.com/en/authentication/troubleshooting-ssh) for GitHub.
 
 **[CALL FOR BREAK]**
 
