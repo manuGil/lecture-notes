@@ -2,11 +2,11 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *TBA*
+**Last update:** *22-02-2023*
 
 **Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1cCQcpklA-8EXQXZJ39f5tiYhD9BFabLV/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
-These lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
+These are lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
 The context and flow of this lesson have been addapted to better fit the audience.
 
 ## PREPARATION
@@ -22,7 +22,7 @@ $ tail -f ~/.bash_history
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
-Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
+Useful shortcuts for the Windows Terminal (Preview) App on Windows 11.
 
 | Action             | Shortcut                |
 |--------------------|--------------------------|
@@ -40,14 +40,14 @@ Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
-> Explain the terminal and instructor's set up.
+> Explaination of the terminal and lesson set-up.
 
 ### 1.  SETTING UP GIT (Lecture begins) [6 min]
 
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
-Use `git config` with the `--global` option to configure a user name, email address, etc.
+Use `git config` with the `--global` option to configure a user-name, email address, etc.
 
 #### Git Command Syntax
 
@@ -79,6 +79,13 @@ $ git config --global user.email "github-email@mail.com"
     ```shell
     $ git config --global core.autocrlf input
     ```
+
+
+#### c. Check Global Settings
+```shell
+$ git config --global --list
+```
+
 * ~~Configure Default Innitial Branch.
   Change from `master` to `main`~~
 
@@ -86,16 +93,11 @@ $ git config --global user.email "github-email@mail.com"
     $ git config --global init.defaultBranch main
     ```
 
-#### c. Check Global Settings
-```shell
-$ git config --global --list
-```
-
 ### 2. CREATING A REPOSITORY [4 min]
 
 > **Key Points:** 
 `git init` initialises a repository.
-Git stores all of its repository data in a hidden `.git` directory.
+Git stores all of its repository data in the hidden directory: `.git`
 
 > **Use case:**
 Two researchers/programmers are developing code to analyse the inflammation data used in the Python session.
@@ -118,7 +120,7 @@ $ ls -a
 $ git status
 ```
 
-> Explanation (slide 9): initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
+> Explanation [**slide 9**]: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
 
 ### 3. START TRACKING CHANGES [10 min]
 > **Key Points:** How git track changes and the modify-add-commit cycle.
@@ -163,12 +165,13 @@ $ git status
 ```
 
 ```shell
-$ echo "this is a line" | python count-lines.py 
+$ echo "this is one line" | python count-lines.py 
 ```
 
 ```shell
-$ echo -e "this is a line, \n this is another line" | python count-lines.py 
+$ echo -e "this is one line, \n this is another line" | python count-lines.py 
 ```
+> -e enable interpretation of **scape characters**, like `\n`
 
 #### c. Check Git Status
 ```shell
@@ -188,16 +191,14 @@ The file will have its original line endings in your working directory |**
 Creates a snapshot of the changes in the repository's history three.
 
 ```shell
-git commit -m "create  script count-lines.py"
+git commit -m "create script count-lines.py"
 ```
-
-
 
 > A good commit message is short (< 50 characters), and completes the sentence: 'This will..' **message**.
 
-> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use slide 10]
+> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [**Slide 10**]
 
-> Explanation of **modify-add-commit** cycle. [Use slide 11]
+> Explanation of **modify-add-commit** cycle. [**Slide 11**]
 
 > `git commit -a` or `--all` "stage all changes and write them to history". `git add .` on root directoy adds all changes to staging area.
 
@@ -218,7 +219,7 @@ git commit -m "create  script count-lines.py"
     ```shell
     $ git status
     ```
-    > **Explanation**: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desiable because is up to the user to decide when and what to commit to the repository's history.
+    > **Explanation**: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desirable because is up to the user to decide when and what to commit to the repository's history.
     
 #### b. Check Differences (review changes)
 
@@ -226,7 +227,7 @@ git commit -m "create  script count-lines.py"
 $ git diff 
 ```
 
-> Shows the difference between the current state of the repository, and the most recently recorded version (last commit)
+> Shows the difference between the current state of the repository, and the most recently recorded version (last commit).  More about the [meaning of the ouput of 'git diff'](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
 
 #### c. Add and Commit
 ```shell
@@ -250,7 +251,7 @@ git commit -m "add description of expected input".
 
 ### 5. GIT & EMPTY DIRECTORIES [4 mins]
 
-#### a. Create a Directory 'treatments'.
+#### a. Create a Directory 'treatments'. [1 min]
 > Ask students to create a new directory, try to stage it, and check the status. 
 
 **Solutions:**
@@ -266,9 +267,12 @@ $ mkdir treatments
     $ git add treatments
     $ git status
     ```
+
 > **Explanation**: git doesn't track empty directories. Git tracks the content of a file (lines) and its name (including its path). 
 
 #### b. Create Files on the Directory
+
+Creating some dummy files in the `treatment` directory:
 
 ```shell
 $ touch treatments/aspirin.txt treatments/ibuprofen.txt
@@ -306,13 +310,6 @@ $ touch data/a.dat data/b.dat big-data.zip
 ```shell
 $ nano .gitignore
 ```
-Type:
-
-```shell
-# data files
-big-data.zip
-data/
-```
 
 A good practice is to use comments to explain why files and directories are ignored. For example:
 
@@ -322,8 +319,7 @@ big-data.zip
 data/
 ```
 
-* Add and commit .gitignore*
-
+- Add and commit .gitignore*
 
 #### c. Check What's Being Ignored
 ```shell
