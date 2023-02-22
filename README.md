@@ -1,3 +1,3 @@
 # Workshop Live Notes 
 
-[Take me to the live notes)[live-notes]
+**[Take me to live notes](live-notes)**
