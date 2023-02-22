@@ -349,12 +349,12 @@ $ git log --oneline
 
 > Explanation content of Directory and where changes are stored.
 
-> Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
+> Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches.  `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
 
 #### b. HEAD 
-> In the following parts (b-e) is more important to **put attention** than to follow along. Put attention, follow along only if you won't lose focus. [Slide 12]
+> In the following parts (b-e) is more important to **put attention** than to follow along. Put attention, follow along only if you won't lose focus. [**Slide 12**]
 
-> The **HEAD** is a **pointer** that refers to the *current active branch* in the git, which can be that last commit we made or the last commit that was checkout into the working directory. We haven't created more branches and the current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
+> The **HEAD** is a **pointer** that refers to the *current active branch* in a git repository, which can be that last commit we made or the last commit that was checkout into the working directory. We haven't created more branches and the current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
 
 #### c. Add more to the Documentation of count-lines.py
 
@@ -365,7 +365,7 @@ $ nano count-lines.py
 # Output: a string with the total number of lines
 ```
 
-#### d. Check Differences Compared to HEAD
+#### d. Check Differences Compared to HEAD [**Optional**]
 ```shell
 $ git diff HEAD count-lines.py
 ```
@@ -375,7 +375,7 @@ $ git diff HEAD count-lines.py
 $ git diff HEAD~1 count-lines.py 
 $ git diff HEAD~3 count-lines.py
 ```
-> `HEAD~1` compares with the last commit. `HEAD~3` compares to 3 commits ago. 
+> `HEAD~1` compares with **one-before** the last commit in the history. `HEAD~3` compares to **three-before** the last commit in the history. 
 
 #### e. Comparison Using the commit IDs
 > "You will have to reference the Hash explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
@@ -389,10 +389,11 @@ Usage:
 $ git log --oneline # [copy an ID to compare]
 ```
 ```shell
-$ git diff commit-id count-lines.py # [use ID for first commit]
-$ git diff commit-id HEAD count-lines.py # [use ID for first commit]
+$ git diff <commit-id> count-lines.py # [use ID for first commit]
+$ git diff <commit-id> HEAD count-lines.py # [use ID for first commit]
 ```
-> Wrap up this section by showing an illustration of the git history tree [slide 12]
+
+> IMPORTANT: Wrap up this section by showing an illustration of the git history tree [**slide 12**]
 
 ### 7. REVERTING CHANGES [9 min]
 
@@ -420,9 +421,10 @@ $ git log --oneline # [copy ID of "description input"]
 ```
 
 ```shell
-$ git checkout <id--commit> count-lines.py # [will revert changes, use firts commit ID]
+$ git checkout <id--commit> count-lines.py # [will revert changes, use first commit ID]
 $ cat count-lines.py
 ```
+> The `git checkout` command bring the version of a commit-id to the working directory. To make the changes permanent, commit the current version as usual.
 
 #### b. Restore the version without any Docstring [Optional]
 
@@ -439,13 +441,6 @@ $ git checkout f9d7e9c count-lines.py
     ```shell
     $ git checkout HEAD count-lines.py 
     $ cat count-lines.py [notice the file is back to the newest committed version]
-    ```
-
-* Add and Commit the newest version
-
-    ```shell
-    $ git add count-lines.py 
-    $ git commit -m "update author's name"
     ```
 ------
 
