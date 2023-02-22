@@ -515,56 +515,15 @@ Time: 6 minutes
 
 ### 8. REMOTES IN GITHUB [20 min]
 
-> Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
+> Participants use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
 > Explain what GitHub is **[slide 13, 2 min]**
 
-#### 0. Conect to GitHub via SSH [Technical Break, 30 min]
+#### 0. Conect to GitHub via SSH [Technical Break, 5 min]
 
 > GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** [slide 14] to explain what a SSH connection entitles.
 
-To connect via SSH do the following:
-
-* Create a Key-pair inside the `.ssh`  in the Home directory
-
-    ```shell
-    # move to Home directory
-    $ cd ~
-    # create key
-    $ ssh-keygen -t ed25519 -C "your_email@example.com"
-    # save to the default location and file name: ~/.ssh/id_ed25519
-    ```
-* Check the keys have been created
-
-    ```shell
-    $ ls ~/.ssh/
-    ```
-
-* **Windows Users**: Start the `ssh-agent` and add private key to agent. *Mac and Linux user don't have to worry about this.*
-
-    ```shell
-    # start agent
-    $ eval "$(ssh-agent -s)"
-    
-    # add private key
-    $ ssh-add ~/.ssh/id_ed25519
-    ```
-    > Instruct SSH to use key files in different locations: `ssh -i <path/private/keyfile>`
-
-> Info on how to [start the ssh-agent automatically](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows)
-
-
-* Copy public key to GitHub:
-
-    ```shell
-    $ clip < .ssh/id_ed25519.pub
-    ```
-
-* Go to GitHub, explain the basics of the interface and add the SSH key.
-
-Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
-
-* Test SSH connection
+* To test SSH connection
 
     ```shell
     $ ssh -T git@github.com
@@ -575,7 +534,7 @@ Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
 
 > Check the info on [Troubleshooting SSH](https://docs.github.com/en/authentication/troubleshooting-ssh) for GitHub.
 
-**[CALL FOR BREAK]**
+
 
 #### a. Create GitHub Repo 
 > Go to Github and create an empty and public repository called `patients-analysis`.
@@ -626,13 +585,13 @@ Move back to the repo directory: `~/Desktop/
 
 > Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
 
-#### a. Create conflict
+#### a. Creating a conflict
 
 * [Instructor]: explains how to add collaborators to a repository in GitHub. He adds helper as collaborator.
 * [Helper]: pulls instructor's repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
 * [Helper]: Adds, commits and pushes changes to remote.
 * [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and and try to **pull**
-* [Instructor] commits changes *withouth commit message*. Explains that Git know that the conflict appeared during a merge and has prepared a commit message.  and try to **pull**.
+* [Instructor] commits changes *withouth commit message*. Explains that Git knows that the conflict appeared during a merge and has prepared a commit message. And try to **pull**.
 
 #### b. Solve conflict 
 * [Instructor]: explains why the conflict occurred and how to solve it by  editing `count-lines.py` and deciding what changes to keep. Then: adds `count-lines.py`, and commit *withouth commit message*.
@@ -645,7 +604,7 @@ Move back to the repo directory: `~/Desktop/
 
 #### a. Clone workshop-check-in Repository
 
-> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-checkin.git`
+> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-checkin`
 
 ```shell
 $ cd ~/Desktop
@@ -693,6 +652,7 @@ $ git push origin main #[This works only if participants are added to the reposi
 git branch manuelg
 git checkout manuelg
 ```
+
 > Demo pull request on GitHub
 
 ### 11. LESSON SUMMARY [2 min]
