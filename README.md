@@ -1,2 +1,3 @@
-# lecture-notes
-A collection of lecture notes for different purposes
+# Workshop Live Notes 
+
+[Take me to the live notes)[live-notes]
