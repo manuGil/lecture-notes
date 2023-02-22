@@ -450,9 +450,10 @@ $ git checkout f9d7e9c count-lines.py
 
 **[Exercise description (slides):](https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing)**
 
-#### b. Helpers and partcipants go to a Breakout session
+#### b. Participants try to complete exercise by their own
+Time: 6 minutes
 
-> Suggestion: Share your screeen, and ask participats to try things first by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
+> Suggestion: ask participats to try things first by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
 
 #### c. Answers
 
@@ -501,7 +502,7 @@ $ git checkout f9d7e9c count-lines.py
         $ git commit -m "recover awesome science" # commit recovered version
         ```
 
-* **Check your history log – you should have 3 commits**
+* **Check your history log; you should have 3 commits**
 
     ```shell
     $ git log # print full log
