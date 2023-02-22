@@ -2,11 +2,11 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *TBA*
+**Last update:** *22-02-2023*
 
 **Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1cCQcpklA-8EXQXZJ39f5tiYhD9BFabLV/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
-These lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
+These are lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/git-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
 The context and flow of this lesson have been addapted to better fit the audience.
 
 ## PREPARATION
@@ -22,7 +22,7 @@ $ tail -f ~/.bash_history
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
-Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
+Useful shortcuts for the Windows Terminal (Preview) App on Windows 11.
 
 | Action             | Shortcut                |
 |--------------------|--------------------------|
@@ -40,14 +40,14 @@ Useful shortcuts for the App Windows Terminal (Preview) on Windows 10.
 
 > Version control systems start with a base version of a document and then record changes you make each step of the way.
 
-> Explain the terminal and instructor's set up.
+> Explaination of the terminal and lesson set-up.
 
 ### 1.  SETTING UP GIT (Lecture begins) [6 min]
 
 > Sometimes, the shortcut on the Windows menu for Git Bash won't work. In such a case: go to the installation folder (usually `C:/Git`) and double-click on `git-bash.exe` 
 
 > **Key points:**
-Use `git config` with the `--global` option to configure a user name, email address, etc.
+Use `git config` with the `--global` option to configure a user-name, email address, etc.
 
 #### Git Command Syntax
 
@@ -79,6 +79,13 @@ $ git config --global user.email "github-email@mail.com"
     ```shell
     $ git config --global core.autocrlf input
     ```
+
+
+#### c. Check Global Settings
+```shell
+$ git config --global --list
+```
+
 * ~~Configure Default Innitial Branch.
   Change from `master` to `main`~~
 
@@ -86,16 +93,11 @@ $ git config --global user.email "github-email@mail.com"
     $ git config --global init.defaultBranch main
     ```
 
-#### c. Check Global Settings
-```shell
-$ git config --global --list
-```
-
 ### 2. CREATING A REPOSITORY [4 min]
 
 > **Key Points:** 
 `git init` initialises a repository.
-Git stores all of its repository data in a hidden `.git` directory.
+Git stores all of its repository data in the hidden directory: `.git`
 
 > **Use case:**
 Two researchers/programmers are developing code to analyse the inflammation data used in the Python session.
@@ -118,7 +120,7 @@ $ ls -a
 $ git status
 ```
 
-> Explanation (slide 9): initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
+> Explanation [**slide 9**]: initialising (creating .git files) for every folder inside a repo is redundant and bad practice.
 
 ### 3. START TRACKING CHANGES [10 min]
 > **Key Points:** How git track changes and the modify-add-commit cycle.
@@ -163,12 +165,13 @@ $ git status
 ```
 
 ```shell
-$ echo "this is a line" | python count-lines.py 
+$ echo "this is one line" | python count-lines.py 
 ```
 
 ```shell
-$ echo -e "this is a line, \n this is another line" | python count-lines.py 
+$ echo -e "this is one line, \n this is another line" | python count-lines.py 
 ```
+> -e enable interpretation of **scape characters**, like `\n`
 
 #### c. Check Git Status
 ```shell
@@ -188,16 +191,14 @@ The file will have its original line endings in your working directory |**
 Creates a snapshot of the changes in the repository's history three.
 
 ```shell
-git commit -m "create  script count-lines.py"
+git commit -m "create script count-lines.py"
 ```
-
-
 
 > A good commit message is short (< 50 characters), and completes the sentence: 'This will..' **message**.
 
-> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [Use slide 10]
+> Explanation of **staging**. The working directory, the staging area, and the git history. `git add` is used to define which files we want to commit. `git add` specifies what changes to stage; `git commit` takes a snapshot of the changes and writes them to the repository's history. [**Slide 10**]
 
-> Explanation of **modify-add-commit** cycle. [Use slide 11]
+> Explanation of **modify-add-commit** cycle. [**Slide 11**]
 
 > `git commit -a` or `--all` "stage all changes and write them to history". `git add .` on root directoy adds all changes to staging area.
 
@@ -218,7 +219,7 @@ git commit -m "create  script count-lines.py"
     ```shell
     $ git status
     ```
-    > **Explanation**: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desiable because is up to the user to decide when and what to commit to the repository's history.
+    > **Explanation**: Notice that modified files are automatically tracked by Git, however they are not automatically committed. This is desirable because is up to the user to decide when and what to commit to the repository's history.
     
 #### b. Check Differences (review changes)
 
@@ -226,7 +227,7 @@ git commit -m "create  script count-lines.py"
 $ git diff 
 ```
 
-> Shows the difference between the current state of the repository, and the most recently recorded version (last commit)
+> Shows the difference between the current state of the repository, and the most recently recorded version (last commit).  More about the [meaning of the ouput of 'git diff'](https://www.atlassian.com/git/tutorials/saving-changes/git-diff)
 
 #### c. Add and Commit
 ```shell
@@ -250,7 +251,7 @@ git commit -m "add description of expected input".
 
 ### 5. GIT & EMPTY DIRECTORIES [4 mins]
 
-#### a. Create a Directory 'treatments'.
+#### a. Create a Directory 'treatments'. [1 min]
 > Ask students to create a new directory, try to stage it, and check the status. 
 
 **Solutions:**
@@ -266,9 +267,12 @@ $ mkdir treatments
     $ git add treatments
     $ git status
     ```
+
 > **Explanation**: git doesn't track empty directories. Git tracks the content of a file (lines) and its name (including its path). 
 
 #### b. Create Files on the Directory
+
+Creating some dummy files in the `treatment` directory:
 
 ```shell
 $ touch treatments/aspirin.txt treatments/ibuprofen.txt
@@ -306,13 +310,6 @@ $ touch data/a.dat data/b.dat big-data.zip
 ```shell
 $ nano .gitignore
 ```
-Type:
-
-```shell
-# data files
-big-data.zip
-data/
-```
 
 A good practice is to use comments to explain why files and directories are ignored. For example:
 
@@ -322,8 +319,7 @@ big-data.zip
 data/
 ```
 
-* Add and commit .gitignore*
-
+- Add and commit .gitignore*
 
 #### c. Check What's Being Ignored
 ```shell
@@ -353,12 +349,12 @@ $ git log --oneline
 
 > Explanation content of Directory and where changes are stored.
 
-> Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches. `git log -N` *N*=number of commits (latest to first). `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
+> Paging the log. **Q**= quit, **spacebar**= next page, **/**=search word, **N**=navigate thru matches.  `git log --oneline`, limit output to one line. `git log --graph` print a text graph of the history tree.
 
 #### b. HEAD 
-> In the following parts (b-e) is more important to **put attention** than to follow along. Put attention, follow along only if you won't lose focus. [Slide 12]
+> In the following parts (b-e) is more important to **put attention** than to follow along. Put attention, follow along only if you won't lose focus. [**Slide 12**]
 
-> The **HEAD** is a **pointer** that refers to the *current active branch* in the git, which can be that last commit we made or the last commit that was checkout into the working directory. We haven't created more branches and the current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
+> The **HEAD** is a **pointer** that refers to the *current active branch* in a git repository, which can be that last commit we made or the last commit that was checkout into the working directory. We haven't created more branches and the current history tree only contains one single branch, called by default **master** or **main**. In our case HEAD points to the most recent commit in the *master/main* branch. We can refer to the most recent commit using HEAD as an identifier.
 
 #### c. Add more to the Documentation of count-lines.py
 
@@ -369,7 +365,7 @@ $ nano count-lines.py
 # Output: a string with the total number of lines
 ```
 
-#### d. Check Differences Compared to HEAD
+#### d. Check Differences Compared to HEAD [**Optional**]
 ```shell
 $ git diff HEAD count-lines.py
 ```
@@ -379,7 +375,7 @@ $ git diff HEAD count-lines.py
 $ git diff HEAD~1 count-lines.py 
 $ git diff HEAD~3 count-lines.py
 ```
-> `HEAD~1` compares with the last commit. `HEAD~3` compares to 3 commits ago. 
+> `HEAD~1` compares with **one-before** the last commit in the history. `HEAD~3` compares to **three-before** the last commit in the history. 
 
 #### e. Comparison Using the commit IDs
 > "You will have to reference the Hash explicitly if you want to see the `diff` of a file that was not changed between the last commit and the one before it (HEAD~1)."
@@ -393,10 +389,11 @@ Usage:
 $ git log --oneline # [copy an ID to compare]
 ```
 ```shell
-$ git diff commit-id count-lines.py # [use ID for first commit]
-$ git diff commit-id HEAD count-lines.py # [use ID for first commit]
+$ git diff <commit-id> count-lines.py # [use ID for first commit]
+$ git diff <commit-id> HEAD count-lines.py # [use ID for first commit]
 ```
-> Wrap up this section by showing an illustration of the git history tree [slide 12]
+
+> IMPORTANT: Wrap up this section by showing an illustration of the git history tree [**slide 12**]
 
 ### 7. REVERTING CHANGES [9 min]
 
@@ -424,9 +421,10 @@ $ git log --oneline # [copy ID of "description input"]
 ```
 
 ```shell
-$ git checkout <id--commit> count-lines.py # [will revert changes, use firts commit ID]
+$ git checkout <id--commit> count-lines.py # [will revert changes, use first commit ID]
 $ cat count-lines.py
 ```
+> The `git checkout` command bring the version of a commit-id to the working directory. To make the changes permanent, commit the current version as usual.
 
 #### b. Restore the version without any Docstring [Optional]
 
@@ -444,13 +442,6 @@ $ git checkout f9d7e9c count-lines.py
     $ git checkout HEAD count-lines.py 
     $ cat count-lines.py [notice the file is back to the newest committed version]
     ```
-
-* Add and Commit the newest version
-
-    ```shell
-    $ git add count-lines.py 
-    $ git commit -m "update author's name"
-    ```
 ------
 
 ### EXERCISE: Create Repository and Track Changes [15 mins]
@@ -459,9 +450,10 @@ $ git checkout f9d7e9c count-lines.py
 
 **[Exercise description (slides):](https://docs.google.com/presentation/d/17vM2uc_wvCcw7mVMqsNud71K_QZTlcXM4rD2DygkAtk/edit?usp=sharing)**
 
-#### b. Helpers and partcipants go to a Breakout session
+#### b. Participants try to complete exercise by their own
+Time: 6 minutes
 
-> Suggestion: Share your screeen, and ask participats to try things first by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
+> Suggestion: ask participats to try things first by themselves, then show them how to do it. Give them about 1 minute per activity `[1-6]` and then show them the answers one at the time. 
 
 #### c. Answers
 
@@ -510,7 +502,7 @@ $ git checkout f9d7e9c count-lines.py
         $ git commit -m "recover awesome science" # commit recovered version
         ```
 
-* **Check your history log – you should have 3 commits**
+* **Check your history log; you should have 3 commits**
 
     ```shell
     $ git log # print full log
@@ -523,56 +515,15 @@ $ git checkout f9d7e9c count-lines.py
 
 ### 8. REMOTES IN GITHUB [20 min]
 
-> Students use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
+> Participants use their GitHub account to create an empty repository. They follow instructions to push their local copy to the remote.
 
 > Explain what GitHub is **[slide 13, 2 min]**
 
-#### 0. Conect to GitHub via SSH [Technical Break, 30 min]
+#### 0. Conect to GitHub via SSH [Technical Break, 5 min]
 
 > GitHub requires authentification via SSH to do pulls an pushes, but not for cloning. **Use illustrations** [slide 14] to explain what a SSH connection entitles.
 
-To connect via SSH do the following:
-
-* Create a Key-pair inside the `.ssh`  in the Home directory
-
-    ```shell
-    # move to Home directory
-    $ cd ~
-    # create key
-    $ ssh-keygen -t ed25519 -C "your_email@example.com"
-    # save to the default location and file name: ~/.ssh/id_ed25519
-    ```
-* Check the keys have been created
-
-    ```shell
-    $ ls ~/.ssh/
-    ```
-
-* **Windows Users**: Start the `ssh-agent` and add private key to agent. *Mac and Linux user don't have to worry about this.*
-
-    ```shell
-    # start agent
-    $ eval "$(ssh-agent -s)"
-    
-    # add private key
-    $ ssh-add ~/.ssh/id_ed25519
-    ```
-    > Instruct SSH to use key files in different locations: `ssh -i <path/private/keyfile>`
-
-> Info on how to [start the ssh-agent automatically](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows)
-
-
-* Copy public key to GitHub:
-
-    ```shell
-    $ clip < .ssh/id_ed25519.pub
-    ```
-
-* Go to GitHub, explain the basics of the interface and add the SSH key.
-
-Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
-
-* Test SSH connection
+* To test SSH connection
 
     ```shell
     $ ssh -T git@github.com
@@ -583,7 +534,7 @@ Profile > Settings > SSH and GPG keys > New SSH key > Add SSH key
 
 > Check the info on [Troubleshooting SSH](https://docs.github.com/en/authentication/troubleshooting-ssh) for GitHub.
 
-**[CALL FOR BREAK]**
+
 
 #### a. Create GitHub Repo 
 > Go to Github and create an empty and public repository called `patients-analysis`.
@@ -634,13 +585,13 @@ Move back to the repo directory: `~/Desktop/
 
 > Demo using the `count-lines.py`. A helper and the Instructor will create a conflict and present a solution.
 
-#### a. Create conflict
+#### a. Creating a conflict
 
 * [Instructor]: explains how to add collaborators to a repository in GitHub. He adds helper as collaborator.
 * [Helper]: pulls instructor's repo; edits `count-lines.py` and modifies the print line as follows: `print(count, 'total lines in standard input)`. 
 * [Helper]: Adds, commits and pushes changes to remote.
 * [Instructor]: edits local `count-lines.py`; modifies the print line as follows: `print('We found', count, 'lines in standard input)` Add, commit and and try to **pull**
-* [Instructor] commits changes *withouth commit message*. Explains that Git know that the conflict appeared during a merge and has prepared a commit message.  and try to **pull**.
+* [Instructor] commits changes *withouth commit message*. Explains that Git knows that the conflict appeared during a merge and has prepared a commit message. And try to **pull**.
 
 #### b. Solve conflict 
 * [Instructor]: explains why the conflict occurred and how to solve it by  editing `count-lines.py` and deciding what changes to keep. Then: adds `count-lines.py`, and commit *withouth commit message*.
@@ -653,7 +604,7 @@ Move back to the repo directory: `~/Desktop/
 
 #### a. Clone workshop-check-in Repository
 
-> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-checkin.git`
+> Move to the Desktop and clone the workshop-check-in repo. Share the link of the repo in the chat -> `https://github.com/manuGil/workshop-checkin`
 
 ```shell
 $ cd ~/Desktop
@@ -701,6 +652,7 @@ $ git push origin main #[This works only if participants are added to the reposi
 git branch manuelg
 git checkout manuelg
 ```
+
 > Demo pull request on GitHub
 
 ### 11. LESSON SUMMARY [2 min]
