@@ -130,8 +130,6 @@ ls -s
 ls -S
 ```
 
-
-
 > **l**ong option, **h**uman readable, **a**ll (including hidden files and directories), **s**ize of files and directories, **S**ort files and directories by size. Give examples while in `~/`
 
 a. Listing order
@@ -299,5 +297,11 @@ ls *t??ne.pdb
 ls ethane.*
 ```
 
+### 4. PIPES AND FILTERS
 
 
+### 5. LOOPS
+
+### 6. SHELL SCRIPTS
+
+### 7. LESSON SUMMARY
