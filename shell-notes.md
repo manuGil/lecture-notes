@@ -436,6 +436,122 @@ bash middle.sh
 
 > We define varialble in BASH 
 
+a. Edit the  `middle.sh` script as follows.
+
+```shell
+head -n 15 "$1"
+```
+
+> `$1`is a place holder for a positional argument. A value must be passed when executing `middle.sh`. We use double quotes here to allow the use of spaces in the value for the argument.
+
+
+> Save changes, and execute `middle.sh` again. Explain which advantages the new script has compared with the first version.
+
+b. Define multiple arguments and and add comments
+
+```shell
+# Select lines from the middle of a file.
+# Usage: bash middle.sh filename end_line num_lines
+
+head -n "$2" "$1" | tail -n "$3"
+```
+
+ c. Run the script
+
+```shell
+# example 1
+bash middle.sh pentane.pdb 15 5
+# example 2
+bash middle.sh pentane.pdb 20 5
+```
+
+
+
+> What if we want to sort many files based on thier number of files. Explain use of `$@`to define a variale list of arguments
+
+a. Create a new script and include the following conent
+
+```shell
+nano sorted.sh
+
+## content of script:
+
+# Sort files by their length.
+# Usage: bash sorted.sh one_or_more_filenames
+wc -l "$@" | sort -n
+
+```
+
+b. Run script for all `pdb` and `dat` files in 
+
+```shell
+bash sorted.sh *.pdb ../creatures/*.dat
+```
+
+### Looping
+
+> Explanation. Loops are a programming construct which allow us to repeat a command or set of commands for each item in a list. Use pseudo-code to explain `for` loops (slide)
+
+> Use case. suppose we want to print the classificaiton of each species in the files of the `/creatures` directory. The commands that are helpful in this case are `head -n 2` and then `tial -n 1`
+
+a. move to `/creatures` directory
+
+```shell
+cd exercise-data/creatures
+```
+
+b. Create a shell script `species.sh`, and  use a `for` loop to apply those commanad to all `.dat` files
+
+
+```shell
+for filename in basilisk.dat minotaur.dat unicorn.dat
+do
+    echo $filename
+    head -n 2 $filename | tail -n 1
+done
+```
+
+> Explain how to define variables, and that they can be invoke using `$variablename` or `${variablename}`. The later reduces ambiguity. 
+
+c. Another case. If we want to modify all files in `/creatures` directory, but make a back-up firts. We can try to use wildcards for this
+
+```shell
+cp *.dat original-*.dat
+```
+
+> The above fails with 'cp: target original-*.data is not a directory. cp expects a directory when multiple files are passed as teh first argument.
+
+d. We can use a `for` loop instead, directly on the CLI.
+
+```shell
+for filename in *.dat
+do
+    cp $filename original-$filename
+    echo $filename "was copied" 
+done
+```
+
+> Explain how `echo` is useful to provide feedback on commands that do not produce standard output.
+
+
+e. Running a script in debugging mode, using `-x` flag.
+
+Edit the `species.sh` and introduce a typo on the `filename` varialble.
+
+```shell
+# 
+for Filename in basilisk.dat minotaur.dat unicorn.dat
+do
+    echo $filename
+    head -n 2 $filename | tail -n 1
+done
+```
+
+> Script is executed line-by-line. Notice the `echo` command doesn't print anything, the `filename` variable doesn't exits. Bash is case sentitive.
+
+### 7. CLI HISTORY
+
+
 ### 7. LESSON SUMMARY
 
 ```shell
