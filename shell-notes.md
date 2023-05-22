@@ -299,9 +299,145 @@ ls ethane.*
 
 ### 4. PIPES AND FILTERS
 
+> work on the directory `shell-lesson-data/exercise-data/alkanes`. Files with `.pdb` extension are from the *Protein Data Bank* (plain text, speficies the position of each atom in a molecule)
 
-### 5. LOOPS
 
-### 6. SHELL SCRIPTS
+a. List the content of the directory
+
+```shell
+cd shell-lesson-data/exercise-data/alkanes
+ls
+```
+
+b. Use the **w**rd **c**ount command to count the content of a file
+
+```shell
+wc cubane.pdb
+```
+
+> Meaning of output: number of *lines, words and characters*
+
+c. Use `wc` and wildcard to count the countent of all files with `*.pdb` extension.
+
+```shell
+wc *.pdb
+```
+d. Show only the number of *lines*
+
+```shell
+wc -l *.pdb
+```
+
+> Other options: `m` for number of characters, `w` for number of words.
+
+e. Try to use `wc -l` without arguments.
+
+> command waits for input from the command line.  Use *CTL + C* to cancel the command
+
+#### Which file contains the fewest lines?
+
+> What we need to do to find an aswers using the CLI? Which stemps? Ask participants to think
+> We will explore some commands that can help us in finding an answer. 
+
+a. Save command's output to a file
+
+```shell
+wc -l *.pdb > lengths.txt
+ls # check file was created
+cat lengths.txt # list the content of the file
+```
+
+> Cat dumps all the content on the screen. To display content in chunks, use the `less` command (`spacebar` for next page, `b` for back).
+
+a. Ask participants to show the content of `shell-lesson-data/exercise-data/numbers.txt`
+
+```shell
+cat ../../numbers.txt
+```
+
+b. sort the content 
+
+```shell
+short ../../numbers.txt # aphabetically
+```
+
+```shell
+short -n ../../numbers.txt # numerically
+```
+
+c. saving sorted list to a new file
+
+```shell
+sort -n  lengths.txt > sorted-lengths.txt
+```
+
+> Use `>` with caution it will rewrite files without warning, `>>` appends content to a file.
+
+d. filtering output
+
+```shell
+head -n 1 sorted-lengths.txt
+```
+
+> Explain `-n <number>` and `head input `. And also the `tail` command.
+
+#### Pipelines
+They combine two or more commands. The `|` symbol take the output on one command as input for another command (Slide x)
+
+a. Sort and listing the first result
+
+```shell
+sort -n lengths.txt | head -n -1
+```
+
+b. We can combine the steps from the case above into pipelines.
+
+```shell
+# pipeline for counting and sorting
+wc -l *.pdb | sort -n
+```
+
+```shell
+# pipeline for counting, sourting and filtering
+wc -l *.pbd | sort -n | head -n 1
+```
+
+> Questions?
+
+### Exercise?
+Nelle’s Pipeline: Checking Files: https://swcarpentry.github.io/shell-novice/04-pipefilter.html#nelles-pipeline-checking-files
+
+### 6. SHELL SCRIPTS & LOOPS
+
+> Scripts are list of commands (representing a program) saved to a file. They are useful, for example, when we expect to repeat the same command for different inputs.
+
+a. Create a script to select lines 11-15 fo the `octane.pdb` file
+
+```shell
+cd alkanes
+nano middle.sh
+```
+
+```shell
+# content of middle.sh
+
+head -n 15 octane.pdb | tail -n 5
+```
+
+> use **CTRL + O** to save, and **CTRL + X** to exit the editor.
+
+b. Run the script using BASH
+
+```shell
+bash middle.sh
+```
+
+### Passing arguments to a script
+
+> We define varialble in BASH 
 
 ### 7. LESSON SUMMARY
+
+```shell
+```
+> Need to decide on exercises
