@@ -465,8 +465,6 @@ bash middle.sh pentane.pdb 15 5
 bash middle.sh pentane.pdb 20 5
 ```
 
-
-
 > What if we want to sort many files based on thier number of files. Explain use of `$@`to define a variale list of arguments
 
 a. Create a new script and include the following conent
@@ -547,13 +545,48 @@ do
 done
 ```
 
-> Script is executed line-by-line. Notice the `echo` command doesn't print anything, the `filename` variable doesn't exits. Bash is case sentitive.
+> The `-x` prints command traces before executing the command. Notice the `echo` doest have a value for `$filename`, the `filename` variable doesn't exits. Bash is case sentitive.
 
 ### 7. CLI HISTORY
 
+> We learned that we nagivate to previous commands executed in terminal using the up and down arrows. But there are other ways to access the command history.
+
+a. Execute the last command
+
+```shell
+echo "hello"
+
+!! 
+```
+
+b. Search the history with *CTRL + R*
+
+c. Print all or parts of the history
+
+```shell
+# print all the history to the screen
+history 
+
+# print the last 5 commands
+history | tail -n 5
+
+# save the history to a file
+
+hisotry > my-history.txt
+```
+
+Questions?
 
 ### 7. LESSON SUMMARY
 
-```shell
-```
-> Need to decide on exercises
+1. The terminal or CLI is a programing inteface to interact with a computer. 
+2. BASH is a programing language commonly used by the Unix terminal.
+3. Unix and Windows shells are different, and commands also differ.
+4. Shortcuts for directories `.` this directory, `..` parent directory
+5. Be careful when deleting files with `rm`, they will be deleted permanently.
+6. `CTRL + C` will cancel/stop a program
+8. Pipeline use the the `|` symbol to chain inputs and outputs between commands
+7. Bash scripts and `for` loops can help to automate tasks
+8. Always test your pipelines/scripts with a selected copy of your data.
+
+
