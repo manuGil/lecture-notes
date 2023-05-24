@@ -35,21 +35,21 @@ Useful shortcuts for the Windows Terminal (Preview) App on Windows 11.
 ### Lesson Data
 
 [Download the dataset](https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip) for this lesson before starting. 
-
+ 
 ------
 
 ## PART 1
-### 0. INTRODUCTION [x min]
+### 0. INTRODUCTION [10 min]
 
 > An Quick introduction to what a BASH terminal is and what it is used for (Slides)
 
 > Explain when and why CLIs are more useful than GUIs.
 
-### 1. EXPLORING THE TERMINAL
+### 1. EXPLORING THE TERMINAL [10 min]
 
 a. Open Bash terminal
 
-b. Go to the home directory
+b. Go to the home directory with **c**hange **d**irectory
 
     ```shell
     cd ~
@@ -86,7 +86,7 @@ ls
 ls --help
 ```
 
-### 2. EXPLORING DIRECTORIES
+### 2. EXPLORING DIRECTORIES [30 min]
 
 #### The **p**resent **w**orking **d**irectory:
 
@@ -191,20 +191,22 @@ cd shell-lesson-data
 > this fails because `cd` only is aware of subdirectories in current directory.
 
 ```shell
-cd ../shell-lesson-data
+cd ../
 ```
 
 > explain meaning of shortcuts: `..` and `.`
 
-c. Changin directories using absolute paths
+> Questions?
+
+c. Changing directories using absolute paths
 
 ```shell
 cd /Users/<your-user-name>/Desktop/shell-lesson-data/exercise-data
 ```
 
-> Explain the use of shortcuts for navigating directories: `~/` (user-home directory), `cd` (no argument defaults to root directory), `-` location of previous directory
+> Explain the use of shortcuts for navigating directories: `~/` (user-home directory), `cd` (no argument defaults to home directory), `-` location of previous directory
 
-### 3. WORKING WITH FILES AND DIRECTORIES
+### 3. WORKING WITH FILES AND DIRECTORIES [40 min]
 
 #### Creating directories
 
@@ -221,11 +223,11 @@ b. Create the *thesis* directory using the **m**a**k**e **dir**ectory command:
 mkdir thesis
 ```
 
-c. Create `project/data` and `project/data` directories and its **p**arents, in *./thesis/*
+c. Create `project/data` and `project/results` directories and its **p**arents, in *./thesis/*
 
 ```shell
-mkdir -p project/data
-mkdir -p project/results
+mkdir -p ./thesis/project/data
+mkdir -p /thesis/project/results
 ```
 
 > Explain what to avoid when naming directories, e.g., spaces, capitals, special characters other than `., -, _`
@@ -250,18 +252,24 @@ touch my-file.txt
 
 a. Go to `shell-lesson-data/exercise-data/writting`
 
+b. Move `haiku.txt` to `./thesis`
+
+```shell
+mv thesis/haiky.txt thesis/quotes.txt
+```
+
 b. Move (rename) `draft.txt` to `quotes.txt`
 
 ```shell
 mv thesis/draft.txt thesis/quotes.txt
 ```
 
-> Explain `mv` also works for directories
+> Explain `mv` also works for directories. Be careful `mv` may overwrite files, use `-i` to check.
 
 c. Copy `quotes.txt`
 
 ```shell
-cp quotes.txt thesis/quotations.txt
+cp quotes.txt thesi/copy-quotes.txt
 ```
 
 d. Copy a directory and its content
@@ -277,16 +285,16 @@ rm quotes.txt
 ```
 
 ```shell
-rm -r Thesis
+rm -r thesis_backup
 ```
 
-> Explain, be careful with `rm`. Files will be permanently deleted. To check use `rm -i`.
+> Explain, be careful with `rm`. Files will be permanently deleted. To check use `rm -i`. Explain `cp` and `rm` accept multiple arguments.
 
-> Explain `cp` and `rm` accept multiple arguments.
+> Questions?
 
 #### Using Wildcards
 
-> Explanation, wildcards are used to for pattern matching and they help to apply commands to multiple files and directories. Explain **\*** (one or more characters), and **?** (any one character).
+> Explanation, wildcards are used to for pattern matching and they help to apply commands to multiple files and directories. Explain **\*** (zero or more characters), and **?** (any one character).
 
 a. List files in `alkanes` directory
 
@@ -296,6 +304,15 @@ ls *t?ne.*
 ls *t??ne.pdb
 ls ethane.*
 ```
+
+-----------------
+## BREAK 
+-----------------
+## PART 2
+
+### 4. EXERCISE [10 mins]
+
+Breakout session 1: Files & Directories
 
 ### 4. PIPES AND FILTERS
 
@@ -588,5 +605,7 @@ Questions?
 8. Pipeline use the the `|` symbol to chain inputs and outputs between commands
 7. Bash scripts and `for` loops can help to automate tasks
 8. Always test your pipelines/scripts with a selected copy of your data.
+
+> make a break to coicide with the film shooting, 15:30 to 16:00.
 
 
