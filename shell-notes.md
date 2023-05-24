@@ -35,21 +35,21 @@ Useful shortcuts for the Windows Terminal (Preview) App on Windows 11.
 ### Lesson Data
 
 [Download the dataset](https://swcarpentry.github.io/shell-novice/data/shell-lesson-data.zip) for this lesson before starting. 
-
+ 
 ------
 
 ## PART 1
-### 0. INTRODUCTION [x min]
+### 0. INTRODUCTION [10 min]
 
 > An Quick introduction to what a BASH terminal is and what it is used for (Slides)
 
 > Explain when and why CLIs are more useful than GUIs.
 
-### 1. EXPLORING THE TERMINAL
+### 1. EXPLORING THE TERMINAL [10 min]
 
 a. Open Bash terminal
 
-b. Go to the home directory
+b. Go to the home directory with **c**hange **d**irectory
 
     ```shell
     cd ~
@@ -86,7 +86,7 @@ ls
 ls --help
 ```
 
-### 2. EXPLORING DIRECTORIES
+### 2. EXPLORING DIRECTORIES [30 min]
 
 #### The **p**resent **w**orking **d**irectory:
 
@@ -191,20 +191,22 @@ cd shell-lesson-data
 > this fails because `cd` only is aware of subdirectories in current directory.
 
 ```shell
-cd ../shell-lesson-data
+cd ../
 ```
 
 > explain meaning of shortcuts: `..` and `.`
 
-c. Changin directories using absolute paths
+> Questions?
+
+c. Changing directories using absolute paths
 
 ```shell
 cd /Users/<your-user-name>/Desktop/shell-lesson-data/exercise-data
 ```
 
-> Explain the use of shortcuts for navigating directories: `~/` (user-home directory), `cd` (no argument defaults to root directory), `-` location of previous directory
+> Explain the use of shortcuts for navigating directories: `~/` (user-home directory), `cd` (no argument defaults to home directory), `-` location of previous directory
 
-### 3. WORKING WITH FILES AND DIRECTORIES
+### 3. WORKING WITH FILES AND DIRECTORIES [40 min]
 
 #### Creating directories
 
@@ -221,11 +223,11 @@ b. Create the *thesis* directory using the **m**a**k**e **dir**ectory command:
 mkdir thesis
 ```
 
-c. Create `project/data` and `project/data` directories and its **p**arents, in *./thesis/*
+c. Create `project/data` and `project/results` directories and its **p**arents, in *./thesis/*
 
 ```shell
-mkdir -p project/data
-mkdir -p project/results
+mkdir -p ./thesis/project/data
+mkdir -p /thesis/project/results
 ```
 
 > Explain what to avoid when naming directories, e.g., spaces, capitals, special characters other than `., -, _`
@@ -250,18 +252,24 @@ touch my-file.txt
 
 a. Go to `shell-lesson-data/exercise-data/writting`
 
+b. Move `haiku.txt` to `./thesis`
+
+```shell
+mv thesis/haiky.txt thesis/quotes.txt
+```
+
 b. Move (rename) `draft.txt` to `quotes.txt`
 
 ```shell
 mv thesis/draft.txt thesis/quotes.txt
 ```
 
-> Explain `mv` also works for directories
+> Explain `mv` also works for directories. Be careful `mv` may overwrite files, use `-i` to check.
 
 c. Copy `quotes.txt`
 
 ```shell
-cp quotes.txt thesis/quotations.txt
+cp quotes.txt thesi/copy-quotes.txt
 ```
 
 d. Copy a directory and its content
@@ -277,16 +285,16 @@ rm quotes.txt
 ```
 
 ```shell
-rm -r Thesis
+rm -r thesis_backup
 ```
 
-> Explain, be careful with `rm`. Files will be permanently deleted. To check use `rm -i`.
+> Explain, be careful with `rm`. Files will be permanently deleted. To check use `rm -i`. Explain `cp` and `rm` accept multiple arguments.
 
-> Explain `cp` and `rm` accept multiple arguments.
+> Questions?
 
 #### Using Wildcards
 
-> Explanation, wildcards are used to for pattern matching and they help to apply commands to multiple files and directories. Explain **\*** (one or more characters), and **?** (any one character).
+> Explanation, wildcards are used to for pattern matching and they help to apply commands to multiple files and directories. Explain **\*** (zero or more characters), and **?** (any one character).
 
 a. List files in `alkanes` directory
 
@@ -297,10 +305,18 @@ ls *t??ne.pdb
 ls ethane.*
 ```
 
-### 4. PIPES AND FILTERS
+-----------------
+## BREAK 
+-----------------
+## PART 2
 
-> work on the directory `shell-lesson-data/exercise-data/alkanes`. Files with `.pdb` extension are from the *Protein Data Bank* (plain text, speficies the position of each atom in a molecule)
+### 4. EXERCISE [10 mins]
 
+Breakout session 1: [Files & Directories](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)
+
+### 5. PIPES AND FILTERS [21 min]
+
+> Work on the directory `shell-lesson-data/exercise-data/alkanes`. Files with `.pdb` extension are from the *Protein Data Bank* (plain text, speficies the position of each atom in a molecule)
 
 a. List the content of the directory
 
@@ -334,7 +350,7 @@ e. Try to use `wc -l` without arguments.
 
 > command waits for input from the command line.  Use *CTL + C* to cancel the command
 
-#### Which file contains the fewest lines?
+#### Which file contains the fewest  lines?
 
 > What we need to do to find an aswers using the CLI? Which stemps? Ask participants to think
 > We will explore some commands that can help us in finding an answer. 
@@ -358,11 +374,11 @@ cat ../../numbers.txt
 b. sort the content 
 
 ```shell
-short ../../numbers.txt # aphabetically
+sort ../../numbers.txt # aphabetically
 ```
 
 ```shell
-short -n ../../numbers.txt # numerically
+sort -n ../../numbers.txt # numerically
 ```
 
 c. saving sorted list to a new file
@@ -387,7 +403,7 @@ They combine two or more commands. The `|` symbol take the output on one command
 a. Sort and listing the first result
 
 ```shell
-sort -n lengths.txt | head -n -1
+sort -n lengths.txt | head -n 1
 ```
 
 b. We can combine the steps from the case above into pipelines.
@@ -399,19 +415,25 @@ wc -l *.pdb | sort -n
 
 ```shell
 # pipeline for counting, sourting and filtering
-wc -l *.pbd | sort -n | head -n 1
+wc -l *.pdb | sort -n | head -n 1
 ```
 
 > Questions?
 
-### Exercise?
-Nelle’s Pipeline: Checking Files: https://swcarpentry.github.io/shell-novice/04-pipefilter.html#nelles-pipeline-checking-files
 
-### 6. SHELL SCRIPTS & LOOPS
+### 6. EXERCISE [10 mins]
 
-> Scripts are list of commands (representing a program) saved to a file. They are useful, for example, when we expect to repeat the same command for different inputs.
+Breakout session 2: [Pipelines and Filters](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)
 
-a. Create a script to select lines 11-15 fo the `octane.pdb` file
+------------------
+
+## PART 3
+
+### 7. SHELL SCRIPTS & LOOPS [15 min]
+
+> Scripts are list of commands (representing a program) saved to a file. They are useful when we expect to repeat the same command for different inputs. When we want to automate tasks.
+
+a. Create a script to select lines 11-15 from the `octane.pdb` file
 
 ```shell
 cd alkanes
@@ -439,15 +461,14 @@ bash middle.sh
 a. Edit the  `middle.sh` script as follows.
 
 ```shell
-head -n 15 "$1"
+head -n 15 "$1" | tail -n 5
 ```
 
-> `$1`is a place holder for a positional argument. A value must be passed when executing `middle.sh`. We use double quotes here to allow the use of spaces in the value for the argument.
-
+> `$1`is a placeholder for a positional argument. A value must be passed when executing `middle.sh`. We use double quotes here to allow the use of spaces in the value for the argument.
 
 > Save changes, and execute `middle.sh` again. Explain which advantages the new script has compared with the first version.
 
-b. Define multiple arguments and and add comments
+b. Define multiple arguments and add comments
 
 ```shell
 # Select lines from the middle of a file.
@@ -486,7 +507,18 @@ b. Run script for all `pdb` and `dat` files in
 bash sorted.sh *.pdb ../creatures/*.dat
 ```
 
-### Looping
+### 8. EXERCISE [10 mins]
+
+> Move location
+
+Breakout session 3: [Shell Scripts](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)
+
+
+------
+## BREAK [15 min]
+-----
+
+### Looping [25 min]
 
 > Explanation. Loops are a programming construct which allow us to repeat a command or set of commands for each item in a list. Use pseudo-code to explain `for` loops (slide)
 
@@ -517,7 +549,7 @@ c. Another case. If we want to modify all files in `/creatures` directory, but m
 cp *.dat original-*.dat
 ```
 
-> The above fails with 'cp: target original-*.data is not a directory. cp expects a directory when multiple files are passed as teh first argument.
+> The above fails with `cp: target original-*.data is not a directory`. **cp** expects a directory when multiple files are passed as teh first argument.
 
 d. We can use a `for` loop instead, directly on the CLI.
 
@@ -530,7 +562,6 @@ done
 ```
 
 > Explain how `echo` is useful to provide feedback on commands that do not produce standard output.
-
 
 e. Running a script in debugging mode, using `-x` flag.
 
@@ -547,7 +578,12 @@ done
 
 > The `-x` prints command traces before executing the command. Notice the `echo` doest have a value for `$filename`, the `filename` variable doesn't exits. Bash is case sentitive.
 
-### 7. CLI HISTORY
+### 9. EXERCISE [10 mins]
+
+Breakout session 4: [Foor Loops](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)
+
+
+### 10. CLI HISTORY [10 min]
 
 > We learned that we nagivate to previous commands executed in terminal using the up and down arrows. But there are other ways to access the command history.
 
@@ -575,9 +611,16 @@ history | tail -n 5
 hisotry > my-history.txt
 ```
 
-Questions?
+> Questions?
 
-### 7. LESSON SUMMARY
+### 11. EXERCISE 
+
+> If time allows it.
+
+Breakout session extra: [Challenge](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)
+
+
+### 12. LESSON SUMMARY
 
 1. The terminal or CLI is a programing inteface to interact with a computer. 
 2. BASH is a programing language commonly used by the Unix terminal.
@@ -588,5 +631,3 @@ Questions?
 8. Pipeline use the the `|` symbol to chain inputs and outputs between commands
 7. Bash scripts and `for` loops can help to automate tasks
 8. Always test your pipelines/scripts with a selected copy of your data.
-
-
