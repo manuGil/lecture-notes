@@ -2,7 +2,7 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *12-05-2023*
+**Last update:** *25-05-2023*
 
 **Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1ySjg6TLzC63DgO3j9M8Ynx9QrUijeFDQ/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
