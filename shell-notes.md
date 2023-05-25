@@ -6,8 +6,7 @@
 
 **Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1ySjg6TLzC63DgO3j9M8Ynx9QrUijeFDQ/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
-**Exercises:** *[Intro to version control](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)*
-
+**Exercises:** *[Unix-shell exercies with answers](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)*
 
 These are lecture notes for the beginner-level of one of the lessons of the [Software Carpentry](https://swcarpentry.github.io/shell-novice/). These notes assume the use of [Git terminal for Windows](https://gitforwindows.org/).
 The context and flow of this lesson have been addapted to better fit the audience.
