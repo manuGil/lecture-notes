@@ -53,9 +53,9 @@ a. Open Bash terminal
 
 b. Go to the home directory with **c**hange **d**irectory
 
-    ```shell
+ ```shell
     cd ~
-    ```
+ ```
 
 c. Explain the Anatomy of the Terminal
 
