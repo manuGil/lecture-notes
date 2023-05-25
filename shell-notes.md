@@ -20,7 +20,7 @@ $ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 ```
 2. On second (history) terminal:
 ```bash
-$ tail -f ~/.bash_history
+$ tail -f ~/.bash_history | nl -w 3
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
