@@ -4,7 +4,7 @@
 
 **Last update:** *25-05-2023*
 
-**Presentation:** *[Intro to version control](https://docs.google.com/presentation/d/1ySjg6TLzC63DgO3j9M8Ynx9QrUijeFDQ/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
+**Presentation:** *[Intro to Unix-shell](https://docs.google.com/presentation/d/1ySjg6TLzC63DgO3j9M8Ynx9QrUijeFDQ/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
 **Exercises:** *[Unix-shell exercies with answers](https://docs.google.com/presentation/d/13Bnf8ADO5N3L0e0i6W_mTCiuIbE1hrO3HR7dRTx0BS4/edit?usp=sharing)*
 
