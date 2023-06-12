@@ -258,13 +258,9 @@ cat lines.txt
 -----------------
 ## PART 2
 
- 
 ### 4. EXERCISE [20 mins]
 
-Breakout session 1: [Files & Directories] (#)
-
-in the local repo create a new branch B3 and push it upstream.
-Add a few more lines to the lines.txt in branch B3 and push it to the remote repository.
+Breakout session 1: [Working with remote repositories](https://docs.google.com/presentation/d/1p7-n04rVGNNlloMvJDAXApYkwWO1ItMIgCMLG9ScTqQ/edit#slide=id.g2513f0e7587_19_19)
 
 > More on remotes: https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes 
 
@@ -272,5 +268,10 @@ Add a few more lines to the lines.txt in branch B3 and push it to the remote rep
 
 ### 12. LESSON SUMMARY [10 min]
 
-1. ..
-2. ..
+1. A remote is a version of a Git repository hosted in the Internet/Network.
+2. Remote repositories enable distributed version control and collaboration.
+3. Local repositories can be associated to one or more remotes.
+4. `git clone` clones are remote repository to a local computer
+5. `git push` push changed from a local to a remote repository.
+6. `git pull` involves two operations `git fetch` and `git merge`.
+7. Remote and local repositories do not sync automatically. 
