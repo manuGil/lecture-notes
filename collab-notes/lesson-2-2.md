@@ -2,24 +2,24 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *10-06-2023*
+**Last update:** *12-06-2023*
 
-**Presentation:** *[Branching and remote operations | remote operations]()*
+**Presentation:** *[Branching and remote operations | remote operations](https://docs.google.com/presentation/d/1p7-n04rVGNNlloMvJDAXApYkwWO1ItMIgCMLG9ScTqQ/edit#slide=id.g2512947bc00_6_14)*
 
-**Exercises:** *[Exercises remote operations]()*
+<!-- **Exercises:** *[Exercises remote operations]()* -->
 
-Lecture notes for the episode on collaborative development for  research software. 
+Lecture notes for the lesson on remote operations with Git. 
 
 ## PREPARATION
 The instructor sets up the command history on two terminals do the following:
 
 1. On main terminal:
 ```bash
-$ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 ```
 2. On second (history) terminal:
 ```bash
-$ tail -f ~/.bash_history | nl -w 3
+ tail -f ~/.bash_history | nl -w 3
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
@@ -81,12 +81,12 @@ git init --bare my_remote.git
 d. Go into `remote.git/` and verify that indeed it is a bare Git repository
 
 ```shell
-cd ./my_remote.git/ # notice the name of the branch is (BARE:main)
+cd ./remote.git/ # notice the name of the branch is (BARE:main)
 ```
 
 #### Setting a remote on an existing repository
 
-Now, we will see how to set a remote on an existing repository.
+> Now, we will see how to set a remote on an existing repository.
 
 a. Got to the `local` repository and try to list the remotes
 
@@ -100,7 +100,7 @@ git remote
 b. Add a remote to the `local` repository. We will call the remote **origin**, and set the path to `my_remote.git`
 
 ```shell
-git remote add origin ~/Desktop/2306-git/L12/my_remote.git # remote-name | URL-PATH
+git remote add origin ~/Desktop/2306-git/L12/remote.git # remote-name | URL-PATH
 ```
 > To change the URL-PATH to the remote, use `git remote set-url <remote-name> <remote_url>`
 
@@ -156,10 +156,11 @@ git commit -m "add new line to local repo"
 # push to the remote
 git push origin # git push will have the same effect
 ```
+e. Confirm that the change have been transfer to the log of the remote.
 
 ### 3. CLONING REMOTE REPOSITORIES [15 min]
 
-Cloning a repository means creating a local copy of a remote repository. When you clone a repository, you download the entire history, files, and branches of the remote repository onto your local machine. This allows you to work with the code and version history locally, make changes, and contribute to the project.
+Cloning a repository means creating a local copy of a remote repository. When you clone a repository, you download the entire history, files, and default branch of the remote repository onto your local machine. This allows you to work with the code and version history locally, make changes, and contribute to the remote.
 
 a. On `~/Desktop/2306-git/L12/` create a direcory called **cloned**
 
@@ -169,14 +170,14 @@ mkdir cloned
 b. Inside `cloned`, clone the `my-remote.git` remote repotory.
 
 ```shell
-git clone ~/Desktop/2306-git/L12/my_remote.git
+git clone ~/Desktop/2306-git/L12/my_remote.git # use full path
 ```
-> a directory called `my_remote.git` will be created, which is a copy of the remote repository, containing all the files and history in the remote.
+> a directory called `my_remote.git` will be created, which is a copy of the remote repository, containing all the files and history in the remote. The cloned repository is not BARE.
 
 c. Inspect the cloned of `my_remote.git`
 
 ```shell
-cd my_remote.git
+cd my_remote/
 # list content
 ls
 # check the history
@@ -200,19 +201,19 @@ git branch -a
 > Notice that the remote branches have path that is different than before. For example `remotes/origin/B1`. Origin is the default name that Git gives to the server/source you cloned from.
 
 
-> **DRILL:** Add another line to the `lines.txt` file in the `clone/my_remote/` repository, commit the change, and push it to the remote. 
+> **DRILL:** Add another line to the `lines.txt` file in the `cloned/remote/` repository `main` branch, commit the change, and **push** it to the remote. 
 
 > "The command `git push` works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You’ll have to fetch their work first and incorporate it into yours before you’ll be allowed to push" -Git Book
 
 ### 4. COMPARIGN AND SYNCING CHANGES BETWEEN REMOTE AND LOCAL REPOSITORIES [ 10 mins]
 
-a. Inspect the remote repository **origin**
+a. Go to the `/local` repository. Inspect the remote repository **origin**
 
 ```shell
 git remote show origin
 ```
 
-> Notice that after we pushed change from the *cloned* repository, the main branch is out of date.
+> Notice that after we pushed change from the *cloned* repository, the main branch of the *local* repo is out of date.
 
 b. Knowing that our *local* main branch is not up to date, we can compare the versions in the remote and local repositories, using `git diff`
 
@@ -239,7 +240,7 @@ git diff origin/main
 
 > You should see that the local repository is missing the line(s) you added to the cloned repository. 
 
-e. To retrieve update of the remote and merge the, we can use the `git pull` command. Let's merge the in the remote to our local repository.
+e. To retrieve updates from the remote and merge them, we can use the `git pull` command. Let's merge the in the remote to our local repository. Git
 
 ```shell
 git pull origin
@@ -257,6 +258,7 @@ cat lines.txt
 ## BREAK 
 -----------------
 ## PART 2
+
 
 ### 4. EXERCISE [20 mins]
 
