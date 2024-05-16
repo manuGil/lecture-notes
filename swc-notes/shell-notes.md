@@ -2,7 +2,7 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *25-05-2023*
+**Last update:** *16-05-2024*
 
 **Presentation:** *[Intro to Unix-shell](https://docs.google.com/presentation/d/1ySjg6TLzC63DgO3j9M8Ynx9QrUijeFDQ/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
@@ -43,7 +43,7 @@ Useful shortcuts for the Windows Terminal (Preview) App on Windows 11.
 ## PART 1
 ### 0. INTRODUCTION [10 min]
 
-> An Quick introduction to what a BASH terminal is and what it is used for (Slides)
+> A Quick introduction to what a BASH terminal. What it is and what it is used for (Slides)
 
 > Explain when and why CLIs are more useful than GUIs.
 
@@ -53,6 +53,8 @@ a. Open Bash terminal
 
 b. Go to the home directory with **c**hange **d**irectory
 
+> MacOS user should invoke a Bash terminal first: `bash`
+ 
  ```shell
     cd ~
  ```
@@ -68,7 +70,7 @@ c. Explain the Anatomy of the Terminal
 | Symbol(s) | Name | Meaning |
 |-----------|----------|----------|
 | `$`       | prompt | Ready for a command
-| `_`,  ` \|`, :white_square_button:  | text cursor | position where your typing will appear|
+| `_`,  ` \|`, :white_square_button:  | text cursor | position where you're typing will appear|
 | `user@host` |  | who and to which computer the CLI is connected to |
 | `~/Desktop/workshop/` | path | current directory|
 
@@ -96,7 +98,7 @@ ls --help
 pwd
 ```
 
-> Explain the how different OS represent a path to a directory differently. 
+> Explain how different OS's represent a path to a directory differently. 
 
 > Explain what a file system is and how files are organise, also explain the meaning of *root* directory (Slide x).
 
@@ -144,9 +146,9 @@ ls -t
 ls -tr
 ```
 
-> Explain: alphabetically (default), by *t*ime, and in **r**everse order
+> Explain: alphabetically (default), by *t*ime (most recent modified), and in **r**everse order
 
-b. **Clear**ing and accessing previous commands
+b. **Clear**ing the terminal and accessing previous commands
 
 ```shell
 clear
@@ -190,7 +192,7 @@ b. Changing directory backwards
 cd shell-lesson-data
 ```
 
-> this fails because `cd` only is aware of subdirectories in current directory.
+> this fails because `cd` only is aware of subdirectories in the current directory.
 
 ```shell
 cd ../
@@ -249,7 +251,6 @@ e. Creating files using `touch`
 touch my-file.txt
 ```
 
-
 ### **M**o**v**ing, **c**o**p**ying and **r**e**m**oving files and directories
 
 a. Go to `shell-lesson-data/exercise-data/writting`
@@ -268,7 +269,7 @@ mv thesis/draft.txt thesis/quotes.txt
 
 > Explain `mv` also works for directories. Be careful `mv` may overwrite files, use `-i` to check.
 
-c. Copy `quotes.txt`
+c. **C**o**p**y `quotes.txt`
 
 ```shell
 cp quotes.txt thesi/copy-quotes.txt
@@ -296,7 +297,7 @@ rm -r thesis_backup
 
 #### Using Wildcards
 
-> Explanation, wildcards are used to for pattern matching and they help to apply commands to multiple files and directories. Explain **\*** (zero or more characters), and **?** (any one character).
+> Explanation: wildcards are used to enable pattern matching and they help to apply commands to multiple files and directories. Explain **\*** (zero or more characters), and **?** (any one character).
 
 a. List files in `alkanes` directory
 
@@ -318,7 +319,7 @@ Breakout session 1: [Files & Directories](https://docs.google.com/presentation/d
 
 ### 5. PIPES AND FILTERS [21 min]
 
-> Work on the directory `shell-lesson-data/exercise-data/alkanes`. Files with `.pdb` extension are from the *Protein Data Bank* (plain text, speficies the position of each atom in a molecule)
+> Work on the directory `shell-lesson-data/exercise-data/alkanes`. The files with `.pdb` extension are from the *Protein Data Bank* (plain text, speficy the position of each atom in a molecule)
 
 a. List the content of the directory
 
@@ -327,7 +328,7 @@ cd shell-lesson-data/exercise-data/alkanes
 ls
 ```
 
-b. Use the **w**rd **c**ount command to count the content of a file
+b. Use the **w**ord **c**ount command to count the content of a file
 
 ```shell
 wc cubane.pdb
@@ -335,7 +336,7 @@ wc cubane.pdb
 
 > Meaning of output: number of *lines, words and characters*
 
-c. Use `wc` and wildcard to count the countent of all files with `*.pdb` extension.
+c. Use `wc` and wildcards to count the countent of all files with `*.pdb` extension.
 
 ```shell
 wc *.pdb
@@ -352,9 +353,9 @@ e. Try to use `wc -l` without arguments.
 
 > command waits for input from the command line.  Use *CTL + C* to cancel the command
 
-#### Which file contains the fewest  lines?
+#### Which file contains the fewest lines?
 
-> What we need to do to find an aswers using the CLI? Which stemps? Ask participants to think
+> What we need to do to find an aswers using the CLI? Which steps? Ask participants to think
 > We will explore some commands that can help us in finding an answer. 
 
 a. Save command's output to a file
@@ -399,8 +400,12 @@ head -n 1 sorted-lengths.txt
 
 > Explain `-n <number>` and `head input `. And also the `tail` command.
 
+```shell
+tail -n 5 sorted-lengths.txt
+```
+
 #### Pipelines
-They combine two or more commands. The `|` symbol take the output on one command as input for another command (Slide x)
+They combine two or more commands. The `|` symbol take the output on one command as input for another command (Slide 11)
 
 a. Sort and listing the first result
 
@@ -433,7 +438,7 @@ Breakout session 2: [Pipelines and Filters](https://docs.google.com/presentation
 
 ### 7. SHELL SCRIPTS & LOOPS [15 min]
 
-> Scripts are list of commands (representing a program) saved to a file. They are useful when we expect to repeat the same command for different inputs. When we want to automate tasks.
+> Scripts are list of commands (representing a program) and saved to a file. They are useful when we expect to repeat the same commands for different inputs. When we want to automate tasks.
 
 a. Create a script to select lines 11-15 from the `octane.pdb` file
 
@@ -443,7 +448,7 @@ nano middle.sh
 ```
 
 ```shell
-# content of middle.sh
+# content for middle.sh
 
 head -n 15 octane.pdb | tail -n 5
 ```
@@ -458,7 +463,7 @@ bash middle.sh
 
 ### Passing arguments to a script
 
-> We define varialble in BASH 
+> We can define varialble in BASH 
 
 a. Edit the  `middle.sh` script as follows.
 
@@ -488,7 +493,7 @@ bash middle.sh pentane.pdb 15 5
 bash middle.sh pentane.pdb 20 5
 ```
 
-> What if we want to sort many files based on thier number of files. Explain use of `$@`to define a variale list of arguments
+> What if we want to allow  sorting many files wihout restricting the number of files. Explain use of `$@`to define a variale number of arguments.
 
 a. Create a new script and include the following conent
 
@@ -522,9 +527,9 @@ Breakout session 3: [Shell Scripts](https://docs.google.com/presentation/d/13Bnf
 
 ### Looping [25 min]
 
-> Explanation. Loops are a programming construct which allow us to repeat a command or set of commands for each item in a list. Use pseudo-code to explain `for` loops (slide)
+> Explanation. Loops are a programming construct which allow us to repeat a  set of commands for each item in a list. Use pseudo-code to explain `for` loops.
 
-> Use case. suppose we want to print the classificaiton of each species in the files of the `/creatures` directory. The commands that are helpful in this case are `head -n 2` and then `tial -n 1`
+> Use case. Suppose we want to print the classificaiton of each species in the files of the `/creatures` directory. The commands that are helpful in this case are `head -n 2` and then `tial -n 1`
 
 a. move to `/creatures` directory
 
@@ -532,7 +537,7 @@ a. move to `/creatures` directory
 cd exercise-data/creatures
 ```
 
-b. Create a shell script `species.sh`, and  use a `for` loop to apply those commanad to all `.dat` files
+b. Create a shell script: `species.sh`, and  use a `for` loop to apply those commanad to all `.dat` files
 
 
 ```shell
@@ -551,7 +556,7 @@ c. Another case. If we want to modify all files in `/creatures` directory, but m
 cp *.dat original-*.dat
 ```
 
-> The above fails with `cp: target original-*.data is not a directory`. **cp** expects a directory when multiple files are passed as teh first argument.
+> The above fails with `cp: target original-*.data is not a directory`. **cp** expects a directory when multiple files are passed as the first argument.
 
 d. We can use a `for` loop instead, directly on the CLI.
 
@@ -578,7 +583,7 @@ do
 done
 ```
 
-> The `-x` prints command traces before executing the command. Notice the `echo` doest have a value for `$filename`, the `filename` variable doesn't exits. Bash is case sentitive.
+> The `-x` prints command traces before executing the command. Notice the `echo` command doesn't have a value for `$filename`, the `filename` variable doesn't exits. Bash is case sentitive.
 
 ### 9. EXERCISE [10 mins]
 
@@ -627,10 +632,10 @@ Breakout session extra: [Challenge](https://docs.google.com/presentation/d/13Bnf
 1. The terminal or CLI is a programing inteface to interact with a computer. 
 2. BASH is a programing language commonly used by the Unix terminal.
 3. Unix and Windows shells are different, and commands also differ.
-4. Shortcuts for directories `.` this directory, `..` parent directory
+4. Shortcuts for directories: `.` this directory, `..` parent directory
 5. Be careful when deleting files with `rm`, they will be deleted permanently.
 6. `CTRL + C` will cancel/stop a program
-8. Pipeline use the the `|` symbol to chain inputs and outputs between commands
+8. Pipelines use the the `|` symbol to chain inputs and outputs between commands
 7. Bash scripts and `for` loops can help to automate tasks
 8. Always test your pipelines/scripts with a selected copy of your data.
 
