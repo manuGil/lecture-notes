@@ -12,7 +12,23 @@ These are lecture notes for the beginner-level of one of the lessons of the [Sof
 The context and flow of this lesson have been addapted to better fit the audience.
 
 ## PREPARATION
-The instructor sets up the command history on two terminals do the following:
+The instructor sets up the [gitautopush](https://pypi.org/project/gitautopush/) and the command history on two terminals:
+
+
+### Change where Bash history is stored
+
+```shell
+# create  file to storing the terminal history
+touch <path-to-repo>/unix_shell
+# modify .bashrc or .bash_profile and change HISTFILE
+export HISTFILE=~/<path-to-repo>/unix_shell
+# reload configuration to terminal 
+source ~/.bash_history # or .bashrc
+# start gitautopush
+gitautopush <path-to-repo> --sleep 5
+```
+
+### Show history in split terminals
 
 1. On main terminal:
 ```bash
@@ -20,7 +36,7 @@ $ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 ```
 2. On second (history) terminal:
 ```bash
-$ tail -f ~/.bash_history | nl -w 3
+$ tail -f ~/<path-to-repo>/unix_shell | nl -w 3
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
