@@ -32,11 +32,11 @@ gitautopush <path-to-repo> --sleep 5
 
 1. On main terminal:
 ```bash
-$ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 ```
 2. On second (history) terminal:
 ```bash
-$ tail -f ~/<path-to-repo>/unix_shell | nl -w 3
+tail -f ~/<path-to-repo>/unix_shell | nl -w 3
 ```
 
 ### Windows Terminal (Preview) [Keyboard shortcuts]
