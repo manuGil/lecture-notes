@@ -2,7 +2,7 @@
 
 **Instructor:** *Manuel G. Garcia*
 
-**Last update:** *16-05-2024*
+**Last update:** *29-05-2024*
 
 **Presentation:** *[Intro to Unix-shell](https://docs.google.com/presentation/d/1ySjg6TLzC63DgO3j9M8Ynx9QrUijeFDQ/edit?usp=sharing&ouid=105684743155471216616&rtpof=true&sd=true)*
 
