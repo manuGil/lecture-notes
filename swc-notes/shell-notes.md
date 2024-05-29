@@ -59,7 +59,7 @@ Useful shortcuts for the Windows Terminal (Preview) App on Windows 11.
 ## PART 1
 ### 0. INTRODUCTION [10 min]
 
-> A Quick introduction to what a BASH terminal. What it is and what it is used for (Slides)
+> A Quick introduction to the BASH terminal. What it is and what it is used for (Slides)
 
 > Explain when and why CLIs are more useful than GUIs.
 
@@ -224,7 +224,7 @@ cd ../
 c. Changing directories using absolute paths
 
 ```shell
-cd /Users/<your-user-name>/Desktop/shell-lesson-data/exercise-data
+cd /c/Users/<your-user-name>/Desktop/shell-lesson-data/exercise-data
 ```
 
 > Explain the use of shortcuts for navigating directories: `~/` (user-home directory), `cd` (no argument defaults to home directory), `-` location of previous directory
@@ -277,7 +277,7 @@ a. Go to `shell-lesson-data/exercise-data/writting`
 b. Move `haiku.txt` to `./thesis`
 
 ```shell
-mv thesis/haiky.txt thesis/quotes.txt
+mv thesis/haiku.txt thesis/quotes.txt
 ```
 
 b. Move (rename) `draft.txt` to `quotes.txt`
@@ -291,7 +291,7 @@ mv thesis/draft.txt thesis/quotes.txt
 c. **C**o**p**y `quotes.txt`
 
 ```shell
-cp quotes.txt thesi/copy-quotes.txt
+cp quotes.txt thesis/copy-quotes.txt
 ```
 
 d. Copy a directory and its content
@@ -512,9 +512,9 @@ bash middle.sh pentane.pdb 15 5
 bash middle.sh pentane.pdb 20 5
 ```
 
-> What if we want to allow  sorting many files wihout restricting the number of files. Explain use of `$@`to define a variale number of arguments.
+> What if we want to allow  sorting many files without restricting the number of files. Explain use of `$@`to define a variable number of arguments.
 
-a. Create a new script and include the following conent
+a. Create a new script and include the following content
 
 ```shell
 nano sorted.sh
@@ -546,9 +546,9 @@ Breakout session 3: [Shell Scripts](https://docs.google.com/presentation/d/13Bnf
 
 ### Looping [25 min]
 
-> Explanation. Loops are a programming construct which allow us to repeat a  set of commands for each item in a list. Use pseudo-code to explain `for` loops.
+> Explanation. Loops are a programming construct which allow us to repeat a set of commands for each item in a list. Use pseudo-code to explain `for` loops.
 
-> Use case. Suppose we want to print the classificaiton of each species in the files of the `/creatures` directory. The commands that are helpful in this case are `head -n 2` and then `tial -n 1`
+> Use case. Suppose we want to print the classificaiton of each species in the files of the `/creatures` directory. The commands that are helpful in this case are `head -n 2` and then `tail -n 1`
 
 a. move to `/creatures` directory
 
@@ -567,9 +567,9 @@ do
 done
 ```
 
-> Explain how to define variables, and that they can be invoke using `$variablename` or `${variablename}`. The later reduces ambiguity. 
+> Explain how to define variables, and that they can be invoke using `$variablename` or `${variablename}`. The latter reduces ambiguity. 
 
-c. Another case. If we want to modify all files in `/creatures` directory, but make a back-up firts. We can try to use wildcards for this
+c. Another case. If we want to modify all files in `/creatures` directory, but make a back-up first. We can try to use wildcards for this
 
 ```shell
 cp *.dat original-*.dat
@@ -591,7 +591,7 @@ done
 
 e. Running a script in debugging mode, using `-x` flag.
 
-Edit the `species.sh` and introduce a typo on the `filename` varialble.
+Edit the `species.sh` and introduce a typo on the `filename` variable.
 
 ```shell
 # 
@@ -634,7 +634,7 @@ history | tail -n 5
 
 # save the history to a file
 
-hisotry > my-history.txt
+history > my-history.txt
 ```
 
 > Questions?
@@ -648,7 +648,7 @@ Breakout session extra: [Challenge](https://docs.google.com/presentation/d/13Bnf
 
 ### 12. LESSON SUMMARY
 
-1. The terminal or CLI is a programing inteface to interact with a computer. 
+1. The terminal or CLI is a programing interface to interact with a computer. 
 2. BASH is a programing language commonly used by the Unix terminal.
 3. Unix and Windows shells are different, and commands also differ.
 4. Shortcuts for directories: `.` this directory, `..` parent directory
