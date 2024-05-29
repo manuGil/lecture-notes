@@ -103,7 +103,10 @@ ls
 ```
 
 ```shell
+# windows/Linux
 ls --help
+# MacOs
+man ls  # man stands for 'manual'
 ```
 
 ### 2. EXPLORING DIRECTORIES [30 min]
